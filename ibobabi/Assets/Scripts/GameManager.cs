@@ -41,6 +41,7 @@ public class GameManager : MonoBehaviour
         menino.OnClickedTitleScreenMenino += GoToRunState;
         menino.OnCompleteHoverBar += GoToTickleState;
         menino.OnCompleteTickleCount += GoToRunState;
+        menino.OnFinishedTickleTimer += GoToLoseState;
     }
 
     void Update()
@@ -68,13 +69,18 @@ public class GameManager : MonoBehaviour
 
     private void GoToTickleState()
     {
+        // Set Tickle Goal
         currentTickleLevel++;
         if (currentTickleLevel < tickleLevels.Length)
             currentTickleGoal = tickleLevels[currentTickleLevel];
         else
             currentTickleGoal += tickleIncrementAfterFinishedGoals;
-
         menino.SetTickleTarget(currentTickleGoal);
+
+        // Start Tickel Timer
+        menino.StartTickleTimer();
+
+        // Change Statex
         SetState(tickleState);
     }
 
@@ -85,5 +91,9 @@ public class GameManager : MonoBehaviour
     private void GoToRunState()
     {
         SetState(runState);
+    }
+    private void GoToLoseState()
+    {
+        SetState(loseState);
     }
 }

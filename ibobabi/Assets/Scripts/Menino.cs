@@ -24,15 +24,24 @@ public class Menino : MonoBehaviour
     private float visualHitTime = 0f;
 
     [Header("TICKLE")]
-    public float minStopWaitDuration, maxStopWaitDuration;
-    public float minStopDuration, maxStopDuration;
-    private float stopDuration, stopWaitDuration;
+    public float tickleDuration = 10f;
+    private float currentTickleTimer = -1f;
+    public float TickleTimeNormalized {  get { return currentTickleTimer/tickleDuration; } }
     private int tickleCounter = 0;
-    public int TickleCounter { get {  return tickleCounter; } }
+    public int TickleCounter { get { return tickleCounter; } }
+
+    [Header("TICKLE STOP")]
+    public float minStopWaitDuration;
+    public float maxStopWaitDuration;
+    public float minStopDuration;
+    public float maxStopDuration;
+    private float stopDuration, stopWaitDuration;
+    private bool tickleStopped = false;
 
     public Action OnCompleteHoverBar;
     public Action OnCompleteTickleCount;
     public Action OnClickedTitleScreenMenino;
+    public Action OnFinishedTickleTimer;
 
     #region UNITY FUNCTIONS
     private void Start()
@@ -43,7 +52,6 @@ public class Menino : MonoBehaviour
     {
         GameManager.instance.runState.OnEnter -= OnStartRun;
     }
-
     private void Update()
     {
         if (GameManager.instance.CurrentState is StateRun)
@@ -54,6 +62,7 @@ public class Menino : MonoBehaviour
         else if (GameManager.instance.CurrentState is StateTickle)
         {
             TickleInputUpdate();
+            TickleTimeUpdate();
         }
 
         // check click
@@ -61,9 +70,38 @@ public class Menino : MonoBehaviour
             OnClickedMenino();
 
     }
-    
     void OnMouseOver() { mouseHover = true; }
     void OnMouseExit() { mouseHover = false; }
+    private bool AnyLetterKeyDown()
+    {
+        if (Input.GetKeyDown(KeyCode.A)) return true;
+        else if (Input.GetKeyDown(KeyCode.B)) return true;
+        else if (Input.GetKeyDown(KeyCode.C)) return true;
+        else if (Input.GetKeyDown(KeyCode.D)) return true;
+        else if (Input.GetKeyDown(KeyCode.E)) return true;
+        else if (Input.GetKeyDown(KeyCode.F)) return true;
+        else if (Input.GetKeyDown(KeyCode.G)) return true;
+        else if (Input.GetKeyDown(KeyCode.H)) return true;
+        else if (Input.GetKeyDown(KeyCode.I)) return true;
+        else if (Input.GetKeyDown(KeyCode.J)) return true;
+        else if (Input.GetKeyDown(KeyCode.K)) return true;
+        else if (Input.GetKeyDown(KeyCode.L)) return true;
+        else if (Input.GetKeyDown(KeyCode.M)) return true;
+        else if (Input.GetKeyDown(KeyCode.N)) return true;
+        else if (Input.GetKeyDown(KeyCode.O)) return true;
+        else if (Input.GetKeyDown(KeyCode.P)) return true;
+        else if (Input.GetKeyDown(KeyCode.Q)) return true;
+        else if (Input.GetKeyDown(KeyCode.R)) return true;
+        else if (Input.GetKeyDown(KeyCode.S)) return true;
+        else if (Input.GetKeyDown(KeyCode.T)) return true;
+        else if (Input.GetKeyDown(KeyCode.U)) return true;
+        else if (Input.GetKeyDown(KeyCode.V)) return true;
+        else if (Input.GetKeyDown(KeyCode.W)) return true;
+        else if (Input.GetKeyDown(KeyCode.X)) return true;
+        else if (Input.GetKeyDown(KeyCode.Y)) return true;
+        else if (Input.GetKeyDown(KeyCode.Z)) return true;
+        return false;
+    }
     #endregion
 
     #region MOVEMENT
@@ -186,10 +224,27 @@ public class Menino : MonoBehaviour
         SetStopTimer();
     }
 
+    public void StartTickleTimer()
+    {
+        currentTickleTimer = tickleDuration;
+    }
+
     public void SetStopTimer()
     {
         stopWaitDuration = UnityEngine.Random.Range(minStopWaitDuration, maxStopWaitDuration);
         stopDuration = UnityEngine.Random.Range(minStopDuration, maxStopDuration);
+    }
+
+    public void TickleTimeUpdate()
+    {
+        currentTickleTimer -= Time.deltaTime;
+        if (currentTickleTimer <= 0f)
+            FinishedTickleTimer();
+    }
+
+    public void FinishedTickleTimer()
+    {
+        OnFinishedTickleTimer?.Invoke();
     }
 
     private void TickleInputUpdate()
@@ -206,37 +261,6 @@ public class Menino : MonoBehaviour
 
         if (tickleCounter <= 0)
             OnCompleteTickleCount?.Invoke();
-    }
-
-    private bool AnyLetterKeyDown()
-    {
-        if (Input.GetKeyDown(KeyCode.A)) return true;
-        else if (Input.GetKeyDown(KeyCode.B)) return true;
-        else if (Input.GetKeyDown(KeyCode.C)) return true;
-        else if (Input.GetKeyDown(KeyCode.D)) return true;
-        else if (Input.GetKeyDown(KeyCode.E)) return true;
-        else if (Input.GetKeyDown(KeyCode.F)) return true;
-        else if (Input.GetKeyDown(KeyCode.G)) return true;
-        else if (Input.GetKeyDown(KeyCode.H)) return true;
-        else if (Input.GetKeyDown(KeyCode.I)) return true;
-        else if (Input.GetKeyDown(KeyCode.J)) return true;
-        else if (Input.GetKeyDown(KeyCode.K)) return true;
-        else if (Input.GetKeyDown(KeyCode.L)) return true;
-        else if (Input.GetKeyDown(KeyCode.M)) return true;
-        else if (Input.GetKeyDown(KeyCode.N)) return true;
-        else if (Input.GetKeyDown(KeyCode.O)) return true;
-        else if (Input.GetKeyDown(KeyCode.P)) return true;
-        else if (Input.GetKeyDown(KeyCode.Q)) return true;
-        else if (Input.GetKeyDown(KeyCode.R)) return true;
-        else if (Input.GetKeyDown(KeyCode.S)) return true;
-        else if (Input.GetKeyDown(KeyCode.T)) return true;
-        else if (Input.GetKeyDown(KeyCode.U)) return true;
-        else if (Input.GetKeyDown(KeyCode.V)) return true;
-        else if (Input.GetKeyDown(KeyCode.W)) return true;
-        else if (Input.GetKeyDown(KeyCode.X)) return true;
-        else if (Input.GetKeyDown(KeyCode.Y)) return true;
-        else if (Input.GetKeyDown(KeyCode.Z)) return true;
-        return false;
     }
     #endregion
 
