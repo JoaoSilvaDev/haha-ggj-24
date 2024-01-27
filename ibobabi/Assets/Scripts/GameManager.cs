@@ -5,7 +5,7 @@ public class GameManager : MonoBehaviour
 {
     [Header("GAME OBJECTS")]
     public Menino menino;
-    private IState currentState;
+    private IState currentState = null;
     public IState CurrentState { get { return currentState; } }
     public StateTitleScreen titleScreenState;
     public StateRun runState;

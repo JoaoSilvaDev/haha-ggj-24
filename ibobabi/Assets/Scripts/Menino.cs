@@ -1,10 +1,10 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Menino : MonoBehaviour
 {
     [Header("MOVEMENT")]
     public float walkSpeed = 5f;
-    public float rotationSpeed = 45f; // Degrees per second
     public float minWalkDuration, maxWalkDuration;
     public Bounds bounds;
     private float currentWalkDuration;
@@ -12,14 +12,20 @@ public class Menino : MonoBehaviour
     private Vector3 moveDirection;
     private Vector3 debugTargetPoint;  
 
-    [Header("MOUSE")]
-    private float mouseHoverProgress = 0f;
-    public float MouseHoverProgress { get { return mouseHoverProgress; } }
+    [Header("MOUSE HOVER")]
     public float mouseHoverIncreaseSpeed = 1f;
     public float mouseHoverDecreaseSpeed = 1f;
-    private bool mouseHover = false;
+    private float mouseHoverProgress = 0f;
+    public float MouseHoverProgress { get { return mouseHoverProgress; } }
+
+    [Header("MOUSE HOVER VISUALS")]
     public float visualHitFrequency = 0.5f;
+    private bool mouseHover = false;
     private float visualHitTime = 0f;
+
+    [Header("TICKLE")]
+    private int tickleCounter = 0;
+    public int TickleCounter { get {  return tickleCounter; } }
 
     #region UNITY FUNCTIONS
     private void Start()
@@ -40,6 +46,7 @@ public class Menino : MonoBehaviour
         }
         else if (GameManager.instance.CurrentState is StateTickle)
         {
+            TickleInputUpdate();
         }
         else if (GameManager.instance.CurrentState is StateLose)
         {
@@ -55,6 +62,7 @@ public class Menino : MonoBehaviour
     private void OnStartRun()
     {
         SetNewWalkDuration();
+        ResetHoverProgress();
     }
     private void Run()
     {
@@ -104,6 +112,7 @@ public class Menino : MonoBehaviour
 
         return -transform.position.normalized;
     }
+
     private bool IsPositionInsideBounds(Vector2 position, Bounds bounds)
     {
         return position.x > bounds.min.x && position.x < bounds.max.x &&
@@ -112,7 +121,7 @@ public class Menino : MonoBehaviour
 
     #endregion
 
-    #region MOUSE HOVER
+    #region MOUSE
     private void MouseHoverUpdate()
     {
         if (mouseHover)
@@ -121,6 +130,10 @@ public class Menino : MonoBehaviour
             mouseHoverProgress += mouseHoverIncreaseSpeed * Time.deltaTime;
             if (mouseHoverProgress > 1f)
                 mouseHoverProgress = 1f;
+
+            // check click
+            if(Input.GetMouseButtonDown(0))
+                OnClickedMenino();
 
             // visual stuff
             visualHitTime += Time.deltaTime;
@@ -142,12 +155,71 @@ public class Menino : MonoBehaviour
         }
     }
 
+    private void ResetHoverProgress()
+    {
+        mouseHoverProgress = 0f;
+    }
+
+    private void OnClickedMenino()
+    {
+    }
+
     private void VisualHit()
     {
 
     }
     #endregion
 
+    #region TICKLE
+    public void SetTickleTarget(int target)
+    {
+        tickleCounter = target;
+    }
+
+    private void TickleInputUpdate()
+    {
+        if(AnyLetterKeyDown())
+            Tickle();
+        
+    }
+
+    private void Tickle()
+    {
+        tickleCounter--;
+        // call tickle visuals from here
+    }
+
+    private bool AnyLetterKeyDown()
+    {
+        if (Input.GetKeyDown(KeyCode.A)) return true;
+        else if (Input.GetKeyDown(KeyCode.B)) return true;
+        else if (Input.GetKeyDown(KeyCode.C)) return true;
+        else if (Input.GetKeyDown(KeyCode.D)) return true;
+        else if (Input.GetKeyDown(KeyCode.E)) return true;
+        else if (Input.GetKeyDown(KeyCode.F)) return true;
+        else if (Input.GetKeyDown(KeyCode.G)) return true;
+        else if (Input.GetKeyDown(KeyCode.H)) return true;
+        else if (Input.GetKeyDown(KeyCode.I)) return true;
+        else if (Input.GetKeyDown(KeyCode.J)) return true;
+        else if (Input.GetKeyDown(KeyCode.K)) return true;
+        else if (Input.GetKeyDown(KeyCode.L)) return true;
+        else if (Input.GetKeyDown(KeyCode.M)) return true;
+        else if (Input.GetKeyDown(KeyCode.N)) return true;
+        else if (Input.GetKeyDown(KeyCode.O)) return true;
+        else if (Input.GetKeyDown(KeyCode.P)) return true;
+        else if (Input.GetKeyDown(KeyCode.Q)) return true;
+        else if (Input.GetKeyDown(KeyCode.R)) return true;
+        else if (Input.GetKeyDown(KeyCode.S)) return true;
+        else if (Input.GetKeyDown(KeyCode.T)) return true;
+        else if (Input.GetKeyDown(KeyCode.U)) return true;
+        else if (Input.GetKeyDown(KeyCode.V)) return true;
+        else if (Input.GetKeyDown(KeyCode.W)) return true;
+        else if (Input.GetKeyDown(KeyCode.X)) return true;
+        else if (Input.GetKeyDown(KeyCode.Y)) return true;
+        else if (Input.GetKeyDown(KeyCode.Z)) return true;
+        return false;
+    }
+    #endregion
     void OnDrawGizmos()
     {
         Gizmos.color = Color.green;

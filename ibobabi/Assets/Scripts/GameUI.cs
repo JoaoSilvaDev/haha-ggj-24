@@ -4,19 +4,23 @@ using UnityEngine.UI;
 
 public class GameUI : MonoBehaviour
 {
-    [Header("MOUSE HOVER BAR")]
+    [Header("RUN STATE UI")]
     public Image mouseHoverFillBar;
     public RectTransform mouseHoverBarParent;
+
+    [Header("TICKLE STATE UI")]
+    public TextMeshProUGUI tickleCounter;
+
 
     [Header("DEBUG")]
     public GameObject debugUI;
     public TextMeshProUGUI stateDebugText;
     private void Start()
     {
-        GameManager.instance.runState.OnEnter += OnEnterRunState;
-        GameManager.instance.runState.OnExit += OnExitRunState;
         GameManager.instance.titleScreenState.OnEnter += OnEnterTitlescreenState;
         GameManager.instance.titleScreenState.OnExit += OnExitTitlescreenState;
+        GameManager.instance.runState.OnEnter += OnEnterRunState;
+        GameManager.instance.runState.OnExit += OnExitRunState;
         GameManager.instance.tickleState.OnEnter += OnEnterTickleState;
         GameManager.instance.tickleState.OnExit += OnExitTickleState;
     }
@@ -32,10 +36,12 @@ public class GameUI : MonoBehaviour
 
     private void Update()
     {
-        // GAME UI
+        // GAME UI - mouse hover
         mouseHoverFillBar.fillAmount = GameManager.instance.menino.MouseHoverProgress;
         mouseHoverBarParent.position = Camera.main.WorldToScreenPoint(GameManager.instance.menino.transform.position);
 
+        // GAME UI - tickle
+        tickleCounter.text = GameManager.instance.menino.TickleCounter.ToString();
 
         // DEBUG
         if (Input.GetKeyDown(KeyCode.Tab))
@@ -46,6 +52,9 @@ public class GameUI : MonoBehaviour
 
     private void OnEnterTitlescreenState()
     {
+        print("OnEnterTitlescreenState");
+        mouseHoverBarParent.gameObject.SetActive(false);
+        tickleCounter.gameObject.SetActive(false);
     }
 
     private void OnExitTitlescreenState()
@@ -64,9 +73,11 @@ public class GameUI : MonoBehaviour
 
     private void OnEnterTickleState()
     {
+        tickleCounter.gameObject.SetActive(true);
     }
 
     private void OnExitTickleState()
     {
+        tickleCounter.gameObject.SetActive(false);
     }
 }
