@@ -1,4 +1,5 @@
 using TMPro;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,6 +23,7 @@ public class GameUI : MonoBehaviour
 
     [Header("LOSE STATE UI")]
     public CanvasGroup loseUI;
+    public TextMeshProUGUI loseScreenPressAnyKey;
 
     [Header("DEBUG")]
     public CanvasGroup debugUI;
@@ -80,32 +82,44 @@ public class GameUI : MonoBehaviour
             mouseHoverFillBar.fillAmount = GameManager.instance.menino.MouseHoverProgress;
             mouseHoverBarParent.position = Camera.main.WorldToScreenPoint(GameManager.instance.menino.transform.position);
         }
-
-        if (GameManager.instance.CurrentState is StateTickle)
+        else if (GameManager.instance.CurrentState is StateTickle)
         {
             // GAME UI - tickle
             tickleCounter.text = GameManager.instance.menino.TickleCounter.ToString();
             tickleTimerFillbar.fillAmount = GameManager.instance.menino.TickleTimeNormalized;
         }
+        else if(GameManager.instance.CurrentState is StateLose)
+        {
+            loseScreenPressAnyKey.alpha = GameManager.instance.CanSkipLoseScreen ? 1 : 0;
+        }
 
         // DEBUG
         if (Input.GetKeyDown(KeyCode.Tab))
+            debugUI.alpha = debugUI.alpha > 0 ? 0 : 1f;
 
         stateDebugText.text = "state: " + GameManager.instance.CurrentState.GetType().Name;
     }
 
-    private void OnEnterTitlescreenState() { titleScreenUI.alpha = 1f; }
+    private void OnEnterTitlescreenState() { titleScreenUI.alpha = 1f; GameManager.instance.ResetGame(); }
     private void OnExitTitlescreenState() { titleScreenUI.alpha = 0f; }
 
     private void OnEnterRunState() { runUI.alpha = 1f; }
     private void OnExitRunState() { runUI.alpha = 0f; }
 
-    private void OnEnterTickleState() { tickleUI.alpha = 1f; }
+    private void OnEnterTickleState() {tickleUI.alpha = 1f; }
     private void OnExitTickleState() { tickleUI.alpha = 0f; }
 
     private void OnEnterTickleStopState() { tickleStopUI.alpha = 1f; }
     private void OnExitTickleStopState() { tickleStopUI.alpha = 0f; }
 
-    private void OnEnterLoseState() { loseUI.alpha = 1f; }
-    private void OnExitLoseState() { loseUI.alpha = 0f; }
+    private void OnEnterLoseState()
+    {
+        loseScreenPressAnyKey.text = GameManager.instance.loseCondition.ToString();
+        loseUI.alpha = 1f;
+    }
+
+    private void OnExitLoseState()
+    {
+        loseUI.alpha = 0f;
+    }
 }

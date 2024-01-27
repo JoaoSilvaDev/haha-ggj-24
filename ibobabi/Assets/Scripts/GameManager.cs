@@ -1,6 +1,7 @@
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class GameManager : MonoBehaviour
 {
@@ -19,7 +20,15 @@ public class GameManager : MonoBehaviour
     public StateRun runState;
     public StateTickle tickleState;
     public StateTickleStop tickleStopState;
+    public StateTickleFinished tickleFinishedState;
     public StateLose loseState;
+
+    [Header("LOSE STATE")]
+    private float loseStateTimeBeforeAllowSkip = 0.5f;
+    private float loseStateTimer = 0f;
+    public bool CanSkipLoseScreen { get { return loseStateTimer > loseStateTimeBeforeAllowSkip; } }
+    public enum LoseConditions { Runaway, TooManyTickles }
+    public LoseConditions loseCondition;
 
     public static GameManager instance;
 
@@ -32,27 +41,42 @@ public class GameManager : MonoBehaviour
         runState = new StateRun();
         tickleState = new StateTickle();
         tickleStopState = new StateTickleStop();
+        tickleFinishedState = new StateTickleFinished();
         loseState = new StateLose();
+
+        ResetGame();
+
         SetState(titleScreenState);
     }
 
     private void OnEnable()
     {
         menino.OnClickedTitleScreenMenino += GoToRunState;
-        menino.OnCompleteHoverBar += GoToTickleState;
-        menino.OnCompleteTickleCount += GoToRunState;
-        menino.OnFinishedTickleTimer += GoToLoseState;
+        menino.OnCompleteHoverBar += StartTickleState;
+        menino.OnStopTickle += GoToTickleStopState;
+        menino.OnFinishedStopTickleTimer += GoBackToTickle;
+        menino.OnCompleteTickleCount += GoToTickleFinishedState;
+        menino.OnFinishedFinishedTickleTimer += GoToRunState;
+        menino.OnFinishedTickleTimer += GoToLoseStateRunaway;
+        menino.OnTickledDuringStopTime += GoToLoseStateTooManyTickles;
     }
 
     void Update()
     {
         currentState.UpdateState();
 
-        //if (Input.GetKeyDown(KeyCode.Alpha1)) SetState(titleScreenState);
-        //if (Input.GetKeyDown(KeyCode.Alpha2)) SetState(runState);
-        //if (Input.GetKeyDown(KeyCode.Alpha3)) SetState(tickleState);
-        //if (Input.GetKeyDown(KeyCode.Alpha4)) SetState(tickleStopState);
-        //if (Input.GetKeyDown(KeyCode.Alpha5)) SetState(loseState);
+        if(currentState is StateLose)
+        {
+            loseStateTimer += Time.deltaTime;
+            if(CanSkipLoseScreen && Input.anyKeyDown)
+                GoToTitleScreen();
+        }
+    }
+
+    public void ResetGame()
+    {
+        loseStateTimer = 0f;
+        SetTickleLevel(0);
     }
 
     private void SetState(IState targetState)
@@ -67,21 +91,50 @@ public class GameManager : MonoBehaviour
         currentState.OnEnterState();
     }
 
-    private void GoToTickleState()
+    private void SetTickleLevel(int i)
     {
-        // Set Tickle Goal
-        currentTickleLevel++;
+        currentTickleLevel = i;
+
         if (currentTickleLevel < tickleLevels.Length)
             currentTickleGoal = tickleLevels[currentTickleLevel];
         else
             currentTickleGoal += tickleIncrementAfterFinishedGoals;
+    }
+
+    private void StartTickleState()
+    {
+        // Set Tickle level
+        SetTickleLevel(currentTickleLevel);
+        currentTickleLevel++;
         menino.SetTickleTarget(currentTickleGoal);
 
         // Start Tickel Timer
         menino.StartTickleTimer();
+        
+        // Set Stop Timer
+        menino.SetStopTimer();
 
-        // Change Statex
+        // Change State
         SetState(tickleState);
+    }
+    
+
+    // called when going back to TickleState from StopTickle
+    private void GoBackToTickle()
+    {
+        // Change State
+        SetState(tickleState);
+    }
+
+    private void GoToTickleStopState()
+    {
+        SetState(tickleStopState);
+    }
+
+    private void GoToTickleFinishedState()
+    {
+        menino.StartTickleFinishedSequence();
+        SetState(tickleFinishedState);
     }
 
     private void ResetTickleLevel()
@@ -92,8 +145,21 @@ public class GameManager : MonoBehaviour
     {
         SetState(runState);
     }
-    private void GoToLoseState()
+    private void GoToLoseStateRunaway()
     {
+        loseCondition = LoseConditions.Runaway;
+        loseStateTimer = 0f;
         SetState(loseState);
+    }
+    private void GoToLoseStateTooManyTickles()
+    {
+        loseCondition = LoseConditions.TooManyTickles;
+        loseStateTimer = 0f;
+        SetState(loseState);
+    }
+
+    private void GoToTitleScreen()
+    {
+        SetState(titleScreenState);
     }
 }
