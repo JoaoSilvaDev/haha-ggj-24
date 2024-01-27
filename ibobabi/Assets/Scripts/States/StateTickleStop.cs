@@ -1,4 +1,4 @@
-public class StateTitleScreen : State
+public class StateTickleStop : State
 {
     public override void OnEnterState()
     {

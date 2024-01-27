@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     public StateTitleScreen titleScreenState;
     public StateRun runState;
     public StateTickle tickleState;
+    public StateTickleStop tickleStopState;
     public StateLose loseState;
 
     public static GameManager instance;
@@ -30,12 +31,14 @@ public class GameManager : MonoBehaviour
         titleScreenState = new StateTitleScreen();
         runState = new StateRun();
         tickleState = new StateTickle();
+        tickleStopState = new StateTickleStop();
         loseState = new StateLose();
         SetState(titleScreenState);
     }
 
     private void OnEnable()
     {
+        menino.OnClickedTitleScreenMenino += GoToRunState;
         menino.OnCompleteHoverBar += GoToTickleState;
         menino.OnCompleteTickleCount += GoToRunState;
     }
@@ -44,10 +47,11 @@ public class GameManager : MonoBehaviour
     {
         currentState.UpdateState();
 
-        if (Input.GetKeyDown(KeyCode.Alpha1)) SetState(titleScreenState);
-        if (Input.GetKeyDown(KeyCode.Alpha2)) SetState(runState);
-        if (Input.GetKeyDown(KeyCode.Alpha3)) SetState(tickleState);
-        if (Input.GetKeyDown(KeyCode.Alpha4)) SetState(loseState);
+        //if (Input.GetKeyDown(KeyCode.Alpha1)) SetState(titleScreenState);
+        //if (Input.GetKeyDown(KeyCode.Alpha2)) SetState(runState);
+        //if (Input.GetKeyDown(KeyCode.Alpha3)) SetState(tickleState);
+        //if (Input.GetKeyDown(KeyCode.Alpha4)) SetState(tickleStopState);
+        //if (Input.GetKeyDown(KeyCode.Alpha5)) SetState(loseState);
     }
 
     private void SetState(IState targetState)

@@ -11,10 +11,4 @@ public class StateTickle : State
         base.OnExitState();
         // Additional logic for exiting TitleScreen state
     }
-
-    public override void UpdateState()
-    {
-        base.UpdateState();
-        // Title screen state logic
-    }
 }

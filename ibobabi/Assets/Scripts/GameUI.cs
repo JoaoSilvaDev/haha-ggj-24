@@ -13,6 +13,11 @@ public class GameUI : MonoBehaviour
     public CanvasGroup tickleUI;
     public TextMeshProUGUI tickleCounter;
 
+    [Header("TICKLE STOP STATE UI")]
+    public CanvasGroup tickleStopUI;
+
+    [Header("LOSE STATE UI")]
+    public CanvasGroup loseUI;
 
     [Header("DEBUG")]
     public CanvasGroup debugUI;
@@ -21,19 +26,35 @@ public class GameUI : MonoBehaviour
     {
         GameManager.instance.titleScreenState.OnEnter += OnEnterTitlescreenState;
         GameManager.instance.titleScreenState.OnExit += OnExitTitlescreenState;
+
         GameManager.instance.runState.OnEnter += OnEnterRunState;
         GameManager.instance.runState.OnExit += OnExitRunState;
+
         GameManager.instance.tickleState.OnEnter += OnEnterTickleState;
         GameManager.instance.tickleState.OnExit += OnExitTickleState;
+
+        GameManager.instance.tickleStopState.OnEnter += OnEnterTickleStopState;
+        GameManager.instance.tickleStopState.OnExit += OnExitTickleStopState;
+
+        GameManager.instance.loseState.OnEnter += OnEnterLoseState;
+        GameManager.instance.loseState.OnExit += OnExitLoseState;
     }
     private void OnDisable()
     {
         GameManager.instance.titleScreenState.OnEnter -= OnEnterTitlescreenState;
         GameManager.instance.titleScreenState.OnExit -= OnExitTitlescreenState;
+
         GameManager.instance.runState.OnEnter -= OnEnterRunState;
         GameManager.instance.runState.OnExit -= OnExitRunState;
+
         GameManager.instance.tickleState.OnEnter -= OnEnterTickleState;
         GameManager.instance.tickleState.OnExit -= OnExitTickleState;
+
+        GameManager.instance.tickleStopState.OnEnter -= OnEnterTickleStopState;
+        GameManager.instance.tickleStopState.OnExit -= OnExitTickleStopState;
+
+        GameManager.instance.loseState.OnEnter -= OnEnterLoseState;
+        GameManager.instance.loseState.OnExit -= OnExitLoseState;
     }
 
     private void Update()
@@ -57,7 +78,6 @@ public class GameUI : MonoBehaviour
         runUI.alpha = 0f;
         tickleUI.alpha = 0f;
     }
-
     private void OnExitTitlescreenState()
     {
     }
@@ -66,7 +86,6 @@ public class GameUI : MonoBehaviour
     {
         runUI.alpha = 1f;
     }
-
     private void OnExitRunState()
     {
         runUI.alpha = 0f;
@@ -76,9 +95,26 @@ public class GameUI : MonoBehaviour
     {
         tickleUI.alpha = 1f;
     }
-
     private void OnExitTickleState()
     {
         tickleUI.alpha = 0f;
+    }
+
+    private void OnEnterTickleStopState()
+    {
+        tickleStopUI.alpha = 1f;
+    }
+    private void OnExitTickleStopState()
+    {
+        tickleStopUI.alpha = 0f;
+    }
+
+    private void OnEnterLoseState()
+    {
+        loseUI.alpha = 1f;
+    }
+    private void OnExitLoseState()
+    {
+        loseUI.alpha = 0f;
     }
 }

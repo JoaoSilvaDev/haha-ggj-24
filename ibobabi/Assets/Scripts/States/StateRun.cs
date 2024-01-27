@@ -11,10 +11,4 @@ public class StateRun : State
         base.OnExitState();
         // Additional logic for exiting Run state
     }
-
-    public override void UpdateState()
-    {
-        base.UpdateState();
-        // Run state logic
-    }
 }

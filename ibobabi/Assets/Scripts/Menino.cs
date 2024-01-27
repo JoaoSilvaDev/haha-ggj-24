@@ -24,11 +24,15 @@ public class Menino : MonoBehaviour
     private float visualHitTime = 0f;
 
     [Header("TICKLE")]
+    public float minStopWaitDuration, maxStopWaitDuration;
+    public float minStopDuration, maxStopDuration;
+    private float stopDuration, stopWaitDuration;
     private int tickleCounter = 0;
     public int TickleCounter { get {  return tickleCounter; } }
 
     public Action OnCompleteHoverBar;
     public Action OnCompleteTickleCount;
+    public Action OnClickedTitleScreenMenino;
 
     #region UNITY FUNCTIONS
     private void Start()
@@ -51,9 +55,10 @@ public class Menino : MonoBehaviour
         {
             TickleInputUpdate();
         }
-        else if (GameManager.instance.CurrentState is StateLose)
-        {
-        }
+
+        // check click
+        if (mouseHover && Input.GetMouseButtonDown(0))
+            OnClickedMenino();
 
     }
     
@@ -137,10 +142,6 @@ public class Menino : MonoBehaviour
                 OnCompleteHoverBar?.Invoke();
             }
 
-            // check click
-            if(Input.GetMouseButtonDown(0))
-                OnClickedMenino();
-
             // visual stuff
             visualHitTime += Time.deltaTime;
             if(visualHitTime > visualHitFrequency)
@@ -160,7 +161,6 @@ public class Menino : MonoBehaviour
             visualHitTime = 0f;
         }
     }
-    
 
     private void ResetHoverProgress()
     {
@@ -169,6 +169,8 @@ public class Menino : MonoBehaviour
 
     private void OnClickedMenino()
     {
+        if (GameManager.instance.CurrentState is StateTitleScreen)
+            OnClickedTitleScreenMenino?.Invoke();
     }
 
     private void VisualHit()
@@ -181,6 +183,13 @@ public class Menino : MonoBehaviour
     public void SetTickleTarget(int target)
     {
         tickleCounter = target;
+        SetStopTimer();
+    }
+
+    public void SetStopTimer()
+    {
+        stopWaitDuration = UnityEngine.Random.Range(minStopWaitDuration, maxStopWaitDuration);
+        stopDuration = UnityEngine.Random.Range(minStopDuration, maxStopDuration);
     }
 
     private void TickleInputUpdate()
@@ -230,6 +239,7 @@ public class Menino : MonoBehaviour
         return false;
     }
     #endregion
+
     void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
