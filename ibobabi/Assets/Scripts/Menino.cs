@@ -328,6 +328,6 @@ public class Menino : MonoBehaviour
     {
         Gizmos.color = Color.green;
         Gizmos.DrawWireCube(bounds.center, bounds.size);
-        Gizmos.DrawWireSphere(debugTargetPoint, 0.5f);
+        Gizmos.DrawWireSphere(debugTargetPoint, 0.2f);
     }
 }
