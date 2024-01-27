@@ -27,12 +27,14 @@ public class CameraController : MonoBehaviour
     }
     private void Start()
     {
+        GameManager.instance.titleScreenState.OnEnter += ZoomOut;
         GameManager.instance.tickleState.OnEnter += ZoomIn;
         GameManager.instance.tickleState.OnExit += ZoomOut;
         GameManager.instance.tickleStopState.OnEnter += ZoomIn;
     }
     private void OnDisable()
     {
+        GameManager.instance.titleScreenState.OnEnter -= ZoomOut;
         GameManager.instance.tickleState.OnEnter -= ZoomIn;
         GameManager.instance.tickleState.OnExit -= ZoomOut;
         GameManager.instance.tickleStopState.OnEnter -= ZoomIn;

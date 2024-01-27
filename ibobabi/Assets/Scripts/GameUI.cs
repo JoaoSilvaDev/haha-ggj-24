@@ -1,4 +1,5 @@
 using TMPro;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -111,6 +112,14 @@ public class GameUI : MonoBehaviour
     private void OnEnterTickleStopState() { tickleStopUI.alpha = 1f; }
     private void OnExitTickleStopState() { tickleStopUI.alpha = 0f; }
 
-    private void OnEnterLoseState() { loseUI.alpha = 1f; }
-    private void OnExitLoseState() { loseUI.alpha = 0f; }
+    private void OnEnterLoseState()
+    {
+        loseScreenPressAnyKey.text = GameManager.instance.loseCondition.ToString();
+        loseUI.alpha = 1f;
+    }
+
+    private void OnExitLoseState()
+    {
+        loseUI.alpha = 0f;
+    }
 }

@@ -24,9 +24,11 @@ public class GameManager : MonoBehaviour
     public StateLose loseState;
 
     [Header("LOSE STATE")]
-    private float loseStateTimeBeforeAllowSkip = 2f;
+    private float loseStateTimeBeforeAllowSkip = 0.5f;
     private float loseStateTimer = 0f;
     public bool CanSkipLoseScreen { get { return loseStateTimer > loseStateTimeBeforeAllowSkip; } }
+    public enum LoseConditions { Runaway, TooManyTickles }
+    public LoseConditions loseCondition;
 
     public static GameManager instance;
 
@@ -53,9 +55,10 @@ public class GameManager : MonoBehaviour
         menino.OnCompleteHoverBar += StartTickleState;
         menino.OnStopTickle += GoToTickleStopState;
         menino.OnFinishedStopTickleTimer += GoBackToTickle;
-        menino.OnFinishedFinishedTickleTimer += GoToTickleFinishedState;
-        menino.OnCompleteTickleCount += GoToRunState;
-        menino.OnFinishedTickleTimer += GoToLoseState;
+        menino.OnCompleteTickleCount += GoToTickleFinishedState;
+        menino.OnFinishedFinishedTickleTimer += GoToRunState;
+        menino.OnFinishedTickleTimer += GoToLoseStateRunaway;
+        menino.OnTickledDuringStopTime += GoToLoseStateTooManyTickles;
     }
 
     void Update()
@@ -66,8 +69,7 @@ public class GameManager : MonoBehaviour
         {
             loseStateTimer += Time.deltaTime;
             if(CanSkipLoseScreen && Input.anyKeyDown)
-                    GoToTitleScreen();
-            
+                GoToTitleScreen();
         }
     }
 
@@ -126,13 +128,12 @@ public class GameManager : MonoBehaviour
 
     private void GoToTickleStopState()
     {
-        // Change State
         SetState(tickleStopState);
     }
 
     private void GoToTickleFinishedState()
     {
-        menino.ResetTickleFinishedTimer();
+        menino.StartTickleFinishedSequence();
         SetState(tickleFinishedState);
     }
 
@@ -144,8 +145,15 @@ public class GameManager : MonoBehaviour
     {
         SetState(runState);
     }
-    private void GoToLoseState()
+    private void GoToLoseStateRunaway()
     {
+        loseCondition = LoseConditions.Runaway;
+        loseStateTimer = 0f;
+        SetState(loseState);
+    }
+    private void GoToLoseStateTooManyTickles()
+    {
+        loseCondition = LoseConditions.TooManyTickles;
         loseStateTimer = 0f;
         SetState(loseState);
     }

@@ -36,6 +36,7 @@ public class Menino : MonoBehaviour
     private float stopTiming = -1f;
     private float stopDuration = 1f;
     private float stopTimer = 0f;
+    private float stopTimerInputBuffer = 0.5f;
     private bool hasStoppedinCurrentTickleSequence = false;
 
     [Header("TICKLE FINISHED")]
@@ -47,6 +48,7 @@ public class Menino : MonoBehaviour
     public Action OnCompleteTickleCount;
     public Action OnClickedTitleScreenMenino;
     public Action OnFinishedTickleTimer;
+    public Action OnTickledDuringStopTime;
     public Action OnFinishedStopTickleTimer;
     public Action OnFinishedFinishedTickleTimer;
 
@@ -74,6 +76,11 @@ public class Menino : MonoBehaviour
         else if (GameManager.instance.CurrentState is StateTickleStop)
         {
             TickleStopTimeUpdate();
+            if(stopTimer > stopTimerInputBuffer)
+            {
+                if(AnyLetterKeyDown())
+                    OnTickledDuringStopTime();
+            }
         }
         else if (GameManager.instance.CurrentState is StateTickleFinished)
         {
@@ -268,7 +275,6 @@ public class Menino : MonoBehaviour
             hasStoppedinCurrentTickleSequence = true;
             OnStopTickle?.Invoke();
         }
-            
     }
 
     public void FinishedTickleTimer()
@@ -286,8 +292,6 @@ public class Menino : MonoBehaviour
     {
         tickleCounter--;
 
-        // call tickle visuals from here
-
         if (tickleCounter <= 0)
             OnCompleteTickleCount?.Invoke();
     }
@@ -300,10 +304,14 @@ public class Menino : MonoBehaviour
             stopTimer = 0f;
             OnFinishedStopTickleTimer?.Invoke();
         }
-
+    }
+    
+    private void TickledDuringStopTime()
+    {
+        OnTickledDuringStopTime?.Invoke();
     }
 
-    public void ResetTickleFinishedTimer()
+    public void StartTickleFinishedSequence()
     {
         tickleFinishedTimer = 0f;
     }
