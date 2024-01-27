@@ -9,7 +9,7 @@ public class Menino : MonoBehaviour
     public Bounds bounds;
     private float currentWalkDuration;
     private float walkTimer;
-    private Vector3 moveDirection;
+    private Vector3 moveDirection = Vector3.zero;
     private Vector3 debugTargetPoint;  
 
     [Header("MOUSE HOVER")]
