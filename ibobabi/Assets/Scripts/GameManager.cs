@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     public StateRun runState;
     public StateTickle tickleState;
     public StateTickleStop tickleStopState;
+    public StateTickleFinished tickleFinishedState;
     public StateLose loseState;
 
     [Header("LOSE STATE")]
@@ -38,6 +39,7 @@ public class GameManager : MonoBehaviour
         runState = new StateRun();
         tickleState = new StateTickle();
         tickleStopState = new StateTickleStop();
+        tickleFinishedState = new StateTickleFinished();
         loseState = new StateLose();
 
         ResetGame();
@@ -48,7 +50,10 @@ public class GameManager : MonoBehaviour
     private void OnEnable()
     {
         menino.OnClickedTitleScreenMenino += GoToRunState;
-        menino.OnCompleteHoverBar += GoToTickleState;
+        menino.OnCompleteHoverBar += StartTickleState;
+        menino.OnStopTickle += GoToTickleStopState;
+        menino.OnFinishedStopTickleTimer += GoBackToTickle;
+        menino.OnFinishedFinishedTickleTimer += GoToTickleFinishedState;
         menino.OnCompleteTickleCount += GoToRunState;
         menino.OnFinishedTickleTimer += GoToLoseState;
     }
@@ -94,18 +99,41 @@ public class GameManager : MonoBehaviour
             currentTickleGoal += tickleIncrementAfterFinishedGoals;
     }
 
-    private void GoToTickleState()
+    private void StartTickleState()
     {
-        // Set Tickle Goal
+        // Set Tickle level
         SetTickleLevel(currentTickleLevel);
         currentTickleLevel++;
         menino.SetTickleTarget(currentTickleGoal);
 
         // Start Tickel Timer
         menino.StartTickleTimer();
+        
+        // Set Stop Timer
+        menino.SetStopTimer();
 
-        // Change Statex
+        // Change State
         SetState(tickleState);
+    }
+    
+
+    // called when going back to TickleState from StopTickle
+    private void GoBackToTickle()
+    {
+        // Change State
+        SetState(tickleState);
+    }
+
+    private void GoToTickleStopState()
+    {
+        // Change State
+        SetState(tickleStopState);
+    }
+
+    private void GoToTickleFinishedState()
+    {
+        menino.ResetTickleFinishedTimer();
+        SetState(tickleFinishedState);
     }
 
     private void ResetTickleLevel()

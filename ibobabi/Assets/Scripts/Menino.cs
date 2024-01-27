@@ -31,17 +31,24 @@ public class Menino : MonoBehaviour
     public int TickleCounter { get { return tickleCounter; } }
 
     [Header("TICKLE STOP")]
-    public float minStopWaitDuration;
-    public float maxStopWaitDuration;
-    public float minStopDuration;
-    public float maxStopDuration;
-    private float stopDuration, stopWaitDuration;
-    private bool tickleStopped = false;
+    public float minStopDuration = 2f;
+    public float maxStopDuration = 4f;
+    private float stopTiming = -1f;
+    private float stopDuration = 1f;
+    private float stopTimer = 0f;
+    private bool hasStoppedinCurrentTickleSequence = false;
+
+    [Header("TICKLE FINISHED")]
+    public float tickleFinishedDuration = 3f;
+    private float tickleFinishedTimer = 0f;
 
     public Action OnCompleteHoverBar;
+    public Action OnStopTickle;
     public Action OnCompleteTickleCount;
     public Action OnClickedTitleScreenMenino;
     public Action OnFinishedTickleTimer;
+    public Action OnFinishedStopTickleTimer;
+    public Action OnFinishedFinishedTickleTimer;
 
     #region UNITY FUNCTIONS
     private void Start()
@@ -63,6 +70,14 @@ public class Menino : MonoBehaviour
         {
             TickleInputUpdate();
             TickleTimeUpdate();
+        }
+        else if (GameManager.instance.CurrentState is StateTickleStop)
+        {
+            TickleStopTimeUpdate();
+        }
+        else if (GameManager.instance.CurrentState is StateTickleFinished)
+        {
+            TickleFinishedTimeUpdate();
         }
 
         // check click
@@ -226,7 +241,6 @@ public class Menino : MonoBehaviour
     public void SetTickleTarget(int target)
     {
         tickleCounter = target;
-        SetStopTimer();
     }
 
     public void StartTickleTimer()
@@ -236,15 +250,25 @@ public class Menino : MonoBehaviour
 
     public void SetStopTimer()
     {
-        stopWaitDuration = UnityEngine.Random.Range(minStopWaitDuration, maxStopWaitDuration);
+        hasStoppedinCurrentTickleSequence = false;
+        stopTiming = tickleDuration * (1 - UnityEngine.Random.Range(0.5f, 0.8f));
         stopDuration = UnityEngine.Random.Range(minStopDuration, maxStopDuration);
     }
 
     public void TickleTimeUpdate()
     {
         currentTickleTimer -= Time.deltaTime;
+
         if (currentTickleTimer <= 0f)
             FinishedTickleTimer();
+
+        if (currentTickleTimer < stopTiming && !hasStoppedinCurrentTickleSequence)
+        {
+            stopTimer = 0f;
+            hasStoppedinCurrentTickleSequence = true;
+            OnStopTickle?.Invoke();
+        }
+            
     }
 
     public void FinishedTickleTimer()
@@ -266,6 +290,29 @@ public class Menino : MonoBehaviour
 
         if (tickleCounter <= 0)
             OnCompleteTickleCount?.Invoke();
+    }
+
+    private void TickleStopTimeUpdate()
+    {
+        stopTimer += Time.deltaTime;
+        if (stopTimer >= stopDuration)
+        {
+            stopTimer = 0f;
+            OnFinishedStopTickleTimer?.Invoke();
+        }
+
+    }
+
+    public void ResetTickleFinishedTimer()
+    {
+        tickleFinishedTimer = 0f;
+    }
+
+    private void TickleFinishedTimeUpdate()
+    {
+        tickleFinishedTimer += Time.deltaTime;
+        if (tickleFinishedTimer >= tickleFinishedDuration)
+            OnFinishedFinishedTickleTimer?.Invoke();
     }
     #endregion
 
