@@ -1,6 +1,7 @@
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class GameManager : MonoBehaviour
 {
@@ -21,6 +22,11 @@ public class GameManager : MonoBehaviour
     public StateTickleStop tickleStopState;
     public StateLose loseState;
 
+    [Header("LOSE STATE")]
+    private float loseStateTimeBeforeAllowSkip = 2f;
+    private float loseStateTimer = 0f;
+    public bool CanSkipLoseScreen { get { return loseStateTimer > loseStateTimeBeforeAllowSkip; } }
+
     public static GameManager instance;
 
     private void Awake()
@@ -33,6 +39,9 @@ public class GameManager : MonoBehaviour
         tickleState = new StateTickle();
         tickleStopState = new StateTickleStop();
         loseState = new StateLose();
+
+        ResetGame();
+
         SetState(titleScreenState);
     }
 
@@ -48,11 +57,19 @@ public class GameManager : MonoBehaviour
     {
         currentState.UpdateState();
 
-        //if (Input.GetKeyDown(KeyCode.Alpha1)) SetState(titleScreenState);
-        //if (Input.GetKeyDown(KeyCode.Alpha2)) SetState(runState);
-        //if (Input.GetKeyDown(KeyCode.Alpha3)) SetState(tickleState);
-        //if (Input.GetKeyDown(KeyCode.Alpha4)) SetState(tickleStopState);
-        //if (Input.GetKeyDown(KeyCode.Alpha5)) SetState(loseState);
+        if(currentState is StateLose)
+        {
+            loseStateTimer += Time.deltaTime;
+            if(CanSkipLoseScreen && Input.anyKeyDown)
+                    GoToTitleScreen();
+            
+        }
+    }
+
+    public void ResetGame()
+    {
+        loseStateTimer = 0f;
+        SetTickleLevel(0);
     }
 
     private void SetState(IState targetState)
@@ -67,14 +84,21 @@ public class GameManager : MonoBehaviour
         currentState.OnEnterState();
     }
 
-    private void GoToTickleState()
+    private void SetTickleLevel(int i)
     {
-        // Set Tickle Goal
-        currentTickleLevel++;
+        currentTickleLevel = i;
+
         if (currentTickleLevel < tickleLevels.Length)
             currentTickleGoal = tickleLevels[currentTickleLevel];
         else
             currentTickleGoal += tickleIncrementAfterFinishedGoals;
+    }
+
+    private void GoToTickleState()
+    {
+        // Set Tickle Goal
+        SetTickleLevel(currentTickleLevel);
+        currentTickleLevel++;
         menino.SetTickleTarget(currentTickleGoal);
 
         // Start Tickel Timer
@@ -94,6 +118,12 @@ public class GameManager : MonoBehaviour
     }
     private void GoToLoseState()
     {
+        loseStateTimer = 0f;
         SetState(loseState);
+    }
+
+    private void GoToTitleScreen()
+    {
+        SetState(titleScreenState);
     }
 }

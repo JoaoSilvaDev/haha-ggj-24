@@ -103,6 +103,11 @@ public class Menino : MonoBehaviour
         return false;
     }
     #endregion
+    
+    public void ResetMenino()
+    {
+        walkTimer = 0f;
+    }
 
     #region MOVEMENT
     private void OnStartRun()
