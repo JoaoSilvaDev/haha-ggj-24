@@ -43,6 +43,9 @@ public class Menino : MonoBehaviour
     public float tickleFinishedDuration = 3f;
     private float tickleFinishedTimer = 0f;
 
+    public Animator anim;
+    public SpriteRenderer rend;
+
     public Action OnCompleteHoverBar;
     public Action OnStopTickle;
     public Action OnCompleteTickleCount;
@@ -91,6 +94,8 @@ public class Menino : MonoBehaviour
         if (mouseHover && Input.GetMouseButtonDown(0))
             OnClickedMenino();
 
+        UpdateAnimation();
+
     }
     void OnMouseOver() { mouseHover = true; }
     void OnMouseExit() { mouseHover = false; }
@@ -123,6 +128,38 @@ public class Menino : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Y)) return true;
         else if (Input.GetKeyDown(KeyCode.Z)) return true;
         return false;
+    }
+    
+    private void UpdateAnimation()
+    {
+        if(GameManager.instance.CurrentState is StateTitleScreen)
+        {
+            anim.Play("sleep");
+        }
+        else if (GameManager.instance.CurrentState is StateRun)
+        {
+            if (moveDirection.y > 0.1f)
+                anim.Play("walk-up");
+            else if(moveDirection.y < 0.1f)
+                anim.Play("walk-down");
+            else
+                anim.Play("idle");
+
+            if (moveDirection.x > 0)
+                rend.flipX = false;
+            else if (moveDirection.x < 0)
+                rend.flipX = true;
+        }
+        else if (GameManager.instance.CurrentState is StateTickle)
+        {
+            anim.Play("laughs");
+        }
+        else if (GameManager.instance.CurrentState is StateTickleStop)
+        {
+        }
+        else if (GameManager.instance.CurrentState is StateTickleFinished)
+        {
+        }
     }
     #endregion
     
