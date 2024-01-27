@@ -44,6 +44,7 @@ public class Menino : MonoBehaviour
     private float tickleFinishedTimer = 0f;
 
     public Animator anim;
+    public meninoVFX vfx;
     public SpriteRenderer rend;
 
     public Action OnCompleteHoverBar;
@@ -129,7 +130,8 @@ public class Menino : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Z)) return true;
         return false;
     }
-    
+    #endregion
+
     private void UpdateAnimation()
     {
         if(GameManager.instance.CurrentState is StateTitleScreen)
@@ -154,14 +156,7 @@ public class Menino : MonoBehaviour
         {
             anim.Play("laughs");
         }
-        else if (GameManager.instance.CurrentState is StateTickleStop)
-        {
-        }
-        else if (GameManager.instance.CurrentState is StateTickleFinished)
-        {
-        }
     }
-    #endregion
     
     public void ResetMenino()
     {
@@ -248,7 +243,7 @@ public class Menino : MonoBehaviour
             visualHitTime += Time.deltaTime;
             if(visualHitTime > visualHitFrequency)
             {
-                VisualHit();
+                HoverVisualHit();
                 visualHitTime = 0f;
             }
         }
@@ -275,9 +270,9 @@ public class Menino : MonoBehaviour
             OnClickedTitleScreenMenino?.Invoke();
     }
 
-    private void VisualHit()
+    private void HoverVisualHit()
     {
-
+        vfx.FlashHit(Color.white, 0.2f);
     }
     #endregion
 
@@ -327,6 +322,8 @@ public class Menino : MonoBehaviour
 
     private void Tickle()
     {
+        vfx.FlashHit(Color.white, 0.1f);
+
         tickleCounter--;
 
         if (tickleCounter <= 0)
@@ -350,6 +347,7 @@ public class Menino : MonoBehaviour
 
     public void StartTickleFinishedSequence()
     {
+        anim.Play("slightly-angry");
         tickleFinishedTimer = 0f;
     }
 
