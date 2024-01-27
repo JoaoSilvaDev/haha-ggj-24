@@ -170,6 +170,7 @@ MonoBehaviour:
   menino: {fileID: 2050497673}
   tickleLevels: 0f0000001e000000320000004b00000064000000
   tickleIncrementAfterFinishedGoals: 20
+  loseCondition: 0
 --- !u!1 &396998874
 GameObject:
   m_ObjectHideFlags: 0
@@ -470,7 +471,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.7692494, g: 1, b: 0.3803922, a: 0}
+  m_BackGroundColor: {r: 1, g: 1, b: 1, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -2023,6 +2024,9 @@ MonoBehaviour:
   mouseHoverDecreaseSpeed: 0.3
   visualHitFrequency: 0.5
   tickleDuration: 3
+  minStopDuration: 2
+  maxStopDuration: 4
+  tickleFinishedDuration: 3
 --- !u!58 &2050497675
 CircleCollider2D:
   m_ObjectHideFlags: 0
