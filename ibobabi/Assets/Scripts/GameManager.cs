@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
@@ -5,6 +6,13 @@ public class GameManager : MonoBehaviour
 {
     [Header("GAME OBJECTS")]
     public Menino menino;
+
+    [Header("TICKLE SETTINGS")]
+    public int[] tickleLevels = new int[0];
+    private int currentTickleLevel = 0;
+    private int currentTickleGoal = 0;
+    public int tickleIncrementAfterFinishedGoals = 20;
+
     private IState currentState = null;
     public IState CurrentState { get { return currentState; } }
     public StateTitleScreen titleScreenState;
@@ -25,6 +33,13 @@ public class GameManager : MonoBehaviour
         loseState = new StateLose();
         SetState(titleScreenState);
     }
+
+    private void OnEnable()
+    {
+        menino.OnCompleteHoverBar += GoToTickleState;
+        menino.OnCompleteTickleCount += GoToRunState;
+    }
+
     void Update()
     {
         currentState.UpdateState();
@@ -35,7 +50,7 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha4)) SetState(loseState);
     }
 
-    void SetState(IState targetState)
+    private void SetState(IState targetState)
     {
         if(targetState == currentState) return;
 
@@ -45,5 +60,26 @@ public class GameManager : MonoBehaviour
         currentState = targetState;
 
         currentState.OnEnterState();
+    }
+
+    private void GoToTickleState()
+    {
+        currentTickleLevel++;
+        if (currentTickleLevel < tickleLevels.Length)
+            currentTickleGoal = tickleLevels[currentTickleLevel];
+        else
+            currentTickleGoal += tickleIncrementAfterFinishedGoals;
+
+        menino.SetTickleTarget(currentTickleGoal);
+        SetState(tickleState);
+    }
+
+    private void ResetTickleLevel()
+    {
+        currentTickleLevel = 0;
+    }
+    private void GoToRunState()
+    {
+        SetState(runState);
     }
 }

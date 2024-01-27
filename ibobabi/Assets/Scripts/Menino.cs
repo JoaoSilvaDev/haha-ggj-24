@@ -1,5 +1,5 @@
+using System;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class Menino : MonoBehaviour
 {
@@ -26,6 +26,9 @@ public class Menino : MonoBehaviour
     [Header("TICKLE")]
     private int tickleCounter = 0;
     public int TickleCounter { get {  return tickleCounter; } }
+
+    public Action OnCompleteHoverBar;
+    public Action OnCompleteTickleCount;
 
     #region UNITY FUNCTIONS
     private void Start()
@@ -73,7 +76,7 @@ public class Menino : MonoBehaviour
         if (walkTimer <= 0f)
         {
             // 5% chance of staying still
-            if (Random.Range(0, 20) > 19)
+            if (UnityEngine.Random.Range(0, 20) > 19)
                 StopMovement(minWalkDuration);
             else
                 SetNewWalkDuration();
@@ -93,7 +96,7 @@ public class Menino : MonoBehaviour
 
     private void SetNewWalkDuration()
     {
-        currentWalkDuration = Random.Range(minWalkDuration, maxWalkDuration);
+        currentWalkDuration = UnityEngine.Random.Range(minWalkDuration, maxWalkDuration);
         walkTimer = currentWalkDuration;
         moveDirection = GetRandomDirectionInsideBounds();
     }
@@ -102,7 +105,7 @@ public class Menino : MonoBehaviour
     {
         for(int i = 0; i < 1000; i++)
         {
-            Vector2 dir = Quaternion.Euler(0f, 0f, Random.Range(0f, 360f)) * Vector2.up;
+            Vector2 dir = Quaternion.Euler(0f, 0f, UnityEngine.Random.Range(0f, 360f)) * Vector2.up;
             debugTargetPoint = transform.position + new Vector3(dir.x, dir.y, 0f) * walkSpeed;
             if (IsPositionInsideBounds(debugTargetPoint, bounds))
                 return dir.normalized;
@@ -129,7 +132,10 @@ public class Menino : MonoBehaviour
             // mouse progress
             mouseHoverProgress += mouseHoverIncreaseSpeed * Time.deltaTime;
             if (mouseHoverProgress > 1f)
+            {
                 mouseHoverProgress = 1f;
+                OnCompleteHoverBar?.Invoke();
+            }
 
             // check click
             if(Input.GetMouseButtonDown(0))
@@ -154,6 +160,7 @@ public class Menino : MonoBehaviour
             visualHitTime = 0f;
         }
     }
+    
 
     private void ResetHoverProgress()
     {
@@ -180,13 +187,16 @@ public class Menino : MonoBehaviour
     {
         if(AnyLetterKeyDown())
             Tickle();
-        
     }
 
     private void Tickle()
     {
         tickleCounter--;
+
         // call tickle visuals from here
+
+        if (tickleCounter <= 0)
+            OnCompleteTickleCount?.Invoke();
     }
 
     private bool AnyLetterKeyDown()

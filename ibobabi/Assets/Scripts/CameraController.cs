@@ -38,8 +38,8 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
-        cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, zoomTarget, zoomLerpSpeed);
-        transform.position = Vector3.Lerp(transform.position, targetPos, moveLerpSpeed);
+        cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, zoomTarget, zoomLerpSpeed * Time.deltaTime);
+        transform.position = Vector3.Lerp(transform.position, targetPos, moveLerpSpeed * Time.deltaTime);
     }
 
     public void ZoomIn()

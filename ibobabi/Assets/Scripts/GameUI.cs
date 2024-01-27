@@ -5,15 +5,17 @@ using UnityEngine.UI;
 public class GameUI : MonoBehaviour
 {
     [Header("RUN STATE UI")]
+    public CanvasGroup runUI;
     public Image mouseHoverFillBar;
     public RectTransform mouseHoverBarParent;
 
     [Header("TICKLE STATE UI")]
+    public CanvasGroup tickleUI;
     public TextMeshProUGUI tickleCounter;
 
 
     [Header("DEBUG")]
-    public GameObject debugUI;
+    public CanvasGroup debugUI;
     public TextMeshProUGUI stateDebugText;
     private void Start()
     {
@@ -45,16 +47,15 @@ public class GameUI : MonoBehaviour
 
         // DEBUG
         if (Input.GetKeyDown(KeyCode.Tab))
-            debugUI.SetActive(!debugUI.activeInHierarchy);
+            debugUI.alpha = debugUI.alpha == 0 ? 1 : 0;
 
         stateDebugText.text = "state: " + GameManager.instance.CurrentState.GetType().Name;
     }
 
     private void OnEnterTitlescreenState()
     {
-        print("OnEnterTitlescreenState");
-        mouseHoverBarParent.gameObject.SetActive(false);
-        tickleCounter.gameObject.SetActive(false);
+        runUI.alpha = 0f;
+        tickleUI.alpha = 0f;
     }
 
     private void OnExitTitlescreenState()
@@ -63,21 +64,21 @@ public class GameUI : MonoBehaviour
 
     private void OnEnterRunState()
     {
-        mouseHoverBarParent.gameObject.SetActive(true);
+        runUI.alpha = 1f;
     }
 
     private void OnExitRunState()
     {
-        mouseHoverBarParent.gameObject.SetActive(false);
+        runUI.alpha = 0f;
     }
 
     private void OnEnterTickleState()
     {
-        tickleCounter.gameObject.SetActive(true);
+        tickleUI.alpha = 1f;
     }
 
     private void OnExitTickleState()
     {
-        tickleCounter.gameObject.SetActive(false);
+        tickleUI.alpha = 0f;
     }
 }
