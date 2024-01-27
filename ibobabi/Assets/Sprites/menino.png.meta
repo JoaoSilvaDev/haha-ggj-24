@@ -69,7 +69,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -2047,14 +2047,14 @@ TextureImporter:
       menino_68: 1000989720
       menino_29: 1132685077
       menino_80: -362912238
-      menino_36: 849345339
-      menino_19: -34845536
-      menino_39: -1513416903
       menino_75: 1846453694
-      menino_45: -1245285244
+      menino_36: 849345339
+      menino_65: -471582878
+      menino_39: -1513416903
+      menino_19: -34845536
       menino_13: 1087651128
       menino_33: 1378938974
-      menino_65: -471582878
+      menino_45: -1245285244
       menino_70: -1905081171
       menino_24: -406317918
       menino_0: -1246729927
