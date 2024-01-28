@@ -56,6 +56,12 @@ public class Menino : MonoBehaviour
     public float resultsTimeBeforeSkip = 0.7f;
     private float resultsBeforeSkipTimer = 0f;
 
+    [Header("CURSOR")]
+    public Texture2D cursorDefault;
+    public Texture2D cursorClicked;
+    public Texture2D cursorHoverDefault;
+    public Texture2D cursorHoverClicked;
+
     private int totalTickles = 0;
     public int TotalTickes {  get { return totalTickles; } }
 
@@ -147,6 +153,22 @@ public class Menino : MonoBehaviour
             OnClickedMenino();
 
         UpdateAnimation();
+
+        if(mouseHover)
+        {
+            if (Input.GetMouseButton(0))
+                Cursor.SetCursor(cursorHoverClicked, Vector2.zero, CursorMode.Auto);
+            else
+                Cursor.SetCursor(cursorHoverDefault, Vector2.zero, CursorMode.Auto);
+
+        }
+        else
+        {
+            if(Input.GetMouseButton(0))
+                Cursor.SetCursor(cursorClicked, Vector2.zero, CursorMode.Auto);
+            else
+                Cursor.SetCursor(cursorTexture, Vector2.zero, CursorMode.Auto);
+        }
 
     }
     void OnMouseOver() { mouseHover = true; }

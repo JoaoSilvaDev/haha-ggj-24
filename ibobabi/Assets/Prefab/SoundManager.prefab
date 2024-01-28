@@ -172,7 +172,7 @@ MonoBehaviour:
     pitchOffset: 0
   - soundname: result-screen
     clips:
-    - {fileID: 8300000, guid: 2125d8e3b0611584c98de4873e5fe7ad, type: 3}
+    - {fileID: 8300000, guid: 1d9c2b9844050824d869065dd1dc2f5c, type: 3}
     volume: 1
     loop: 1
     pitchRange: 0
