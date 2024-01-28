@@ -4317,6 +4317,10 @@ MonoBehaviour:
   tickleFinishedDuration: 2
   runawayScreenDuration: 2
   resultsTimeBeforeSkip: 0.7
+  cursorDefault: {fileID: 2800000, guid: 884d54ab09771e7479c8550f3d78302c, type: 3}
+  cursorClicked: {fileID: 2800000, guid: 5f45992aa888e894aa00ea8f40197c50, type: 3}
+  cursorHoverDefault: {fileID: 2800000, guid: e11940a4d9b7c9046900b24efb159b16, type: 3}
+  cursorHoverClicked: {fileID: 2800000, guid: 8617874ced7c8d446803810733ac2b45, type: 3}
   cameraShakeHit: 0.015
   cameraShakeHitDuration: 0.05
   cameraShakeTickle: 0.03

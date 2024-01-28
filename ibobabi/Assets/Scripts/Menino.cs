@@ -167,7 +167,7 @@ public class Menino : MonoBehaviour
             if(Input.GetMouseButton(0))
                 Cursor.SetCursor(cursorClicked, Vector2.zero, CursorMode.Auto);
             else
-                Cursor.SetCursor(cursorTexture, Vector2.zero, CursorMode.Auto);
+                Cursor.SetCursor(cursorDefault, Vector2.zero, CursorMode.Auto);
         }
 
     }
