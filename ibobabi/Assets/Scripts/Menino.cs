@@ -287,7 +287,6 @@ public class Menino : MonoBehaviour
     {
         fallTimer = 0f;
         anim.Play("fall");
-        anim.Play("hurt");
     }
 
     private void FallStateUpdate()
