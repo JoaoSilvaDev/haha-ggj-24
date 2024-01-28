@@ -13,6 +13,7 @@ public class GameUI : MonoBehaviour
     [Header("RUN STATE UI")]
     public CanvasGroup runUI;
     public Image mouseHoverFillBar;
+    public TextMeshProUGUI liveTickleCounter;
     public RectTransform mouseHoverBarParent;
 
     [Header("TICKLE STATE UI")]
@@ -97,6 +98,11 @@ public class GameUI : MonoBehaviour
             // GAME UI - mouse hover
             mouseHoverFillBar.fillAmount = GameManager.instance.menino.MouseHoverProgress;
             mouseHoverBarParent.position = Camera.main.WorldToScreenPoint(GameManager.instance.menino.transform.position);
+
+            if (GameManager.instance.menino.TickleCounter > 0)
+                liveTickleCounter.text = GameManager.instance.menino.TickleCounter.ToString();
+            else
+                liveTickleCounter.text = "";
         }
         else if (GameManager.instance.CurrentState is StateTickle)
         {
