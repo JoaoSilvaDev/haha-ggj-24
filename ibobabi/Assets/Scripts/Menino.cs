@@ -457,11 +457,17 @@ public class Menino : MonoBehaviour
     private void StopTickle()
     {
         print("StopTickle");
+        SoundManager.instance.StopAllSounds();
         SoundManager.instance.PlaySound("stop-before");
         stopTimer = 0f;
         hasStoppedinCurrentTickleSequence = true;
         rend.flipX = false;
         OnStopTickle?.Invoke();
+    }
+
+    public void GunReloadSound()
+    {
+        SoundManager.instance.PlaySound("gun-reload");
     }
 
     public void MeninoStayStop()

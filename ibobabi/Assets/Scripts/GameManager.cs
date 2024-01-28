@@ -153,6 +153,7 @@ public class GameManager : MonoBehaviour
     // called when going back to TickleState from StopTickle
     private void GoBackToTickle()
     {
+        SoundManager.instance.PlaySound("tickle-start");
         FadeOutStopBackground();
         // Change State        
         SetState(tickleState);
@@ -186,12 +187,14 @@ public class GameManager : MonoBehaviour
     }
     private void GoToLoseStateRunaway()
     {
+        SoundManager.instance.PlaySound("lose_runaway");
         loseCondition = LoseConditions.Runaway;
         loseStateTimer = 0f;
         SetState(loseState);
     }
     private void GoToLoseStateTooManyTickles()
     {
+        SoundManager.instance.PlaySound("lose-too-many-tickles");
         loseCondition = LoseConditions.TooManyTickles;
         loseStateTimer = 0f;
         SetState(loseState);

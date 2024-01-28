@@ -142,21 +142,21 @@ MonoBehaviour:
     loop: 0
     pitchRange: 0
     pitchOffset: 0
-  - soundname: stop_after
+  - soundname: gun-reload
     clips:
-    - {fileID: 8300000, guid: c59d8f9ce5472964e8e0c9cc8066fe45, type: 3}
+    - {fileID: 8300000, guid: ace4f8e5904570a45bded3141bbdab92, type: 3}
     volume: 1
     loop: 0
     pitchRange: 0
     pitchOffset: 0
-  - soundname: lose_stop
+  - soundname: lose-too-many-tickles
     clips:
     - {fileID: 8300000, guid: 1cfb5dc53e76e0146bde2e2c4906ca3e, type: 3}
     volume: 1
     loop: 0
     pitchRange: 0
     pitchOffset: 0
-  - soundname: lose_tickle
+  - soundname: lose_runaway
     clips:
     - {fileID: 8300000, guid: 89e4c32c83c88984c8ad889a86eb3247, type: 3}
     volume: 1
@@ -170,25 +170,11 @@ MonoBehaviour:
     loop: 0
     pitchRange: 0
     pitchOffset: 0
-  - soundname: gun
-    clips:
-    - {fileID: 8300000, guid: eae97b018809b9c44a0f67eb1a247c08, type: 3}
-    volume: 1
-    loop: 0
-    pitchRange: 0
-    pitchOffset: 0
-  - soundname: music
+  - soundname: result-screen
     clips:
     - {fileID: 8300000, guid: a76fb73929b3fdc42a114bd92c8d0e4b, type: 3}
     volume: 1
     loop: 1
-    pitchRange: 0
-    pitchOffset: 0
-  - soundname: ui_back
-    clips:
-    - {fileID: 8300000, guid: c8faf90a280c8b749998420f3a74b87b, type: 3}
-    volume: 1
-    loop: 0
     pitchRange: 0
     pitchOffset: 0
   maxSimultaneousSounds: 10
