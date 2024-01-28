@@ -3870,13 +3870,14 @@ MonoBehaviour:
   bounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 6, y: 3, z: 0}
-  mouseHoverIncreaseSpeed: 0.3
+  mouseHoverIncreaseSpeed: 1
   mouseHoverDecreaseSpeed: 0.4
   visualHitFrequency: 0.5
+  fallDuration: 2
   tickleDuration: 3
   minStopDuration: 2
   maxStopDuration: 4
-  tickleFinishedDuration: 1.5
+  tickleFinishedDuration: 2
   anim: {fileID: 2050497676}
   vfx: {fileID: 2050497677}
   rend: {fileID: 2050497671}

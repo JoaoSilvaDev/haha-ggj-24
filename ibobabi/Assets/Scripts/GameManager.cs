@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     public IState CurrentState { get { return currentState; } }
     public StateTitleScreen titleScreenState;
     public StateRun runState;
+    public StateFall fallState;
     public StateTickle tickleState;
     public StateTickleStop tickleStopState;
     public StateTickleFinished tickleFinishedState;
@@ -39,6 +40,7 @@ public class GameManager : MonoBehaviour
 
         titleScreenState = new StateTitleScreen();
         runState = new StateRun();
+        fallState = new StateFall();
         tickleState = new StateTickle();
         tickleStopState = new StateTickleStop();
         tickleFinishedState = new StateTickleFinished();
@@ -52,7 +54,8 @@ public class GameManager : MonoBehaviour
     private void OnEnable()
     {
         menino.OnClickedTitleScreenMenino += GoToRunState;
-        menino.OnCompleteHoverBar += StartTickleState;
+        menino.OnCompleteHoverBar += GoToFallState;
+        menino.OnCompleteFallAnimation += StartTickleState;
         menino.OnStopTickle += GoToTickleStopState;
         menino.OnFinishedStopTickleTimer += GoBackToTickle;
         menino.OnCompleteTickleCount += GoToTickleFinishedState;
@@ -144,6 +147,12 @@ public class GameManager : MonoBehaviour
     private void GoToRunState()
     {
         SetState(runState);
+    }
+
+    private void GoToFallState()
+    {
+        menino.Fall();
+        SetState(fallState);
     }
     private void GoToLoseStateRunaway()
     {

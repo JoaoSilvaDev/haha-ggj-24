@@ -23,6 +23,10 @@ public class Menino : MonoBehaviour
     private bool mouseHover = false;
     private float visualHitTime = 0f;
 
+    [Header("FALL")]
+    public float fallDuration = 1f;
+    private float fallTimer = 0f;
+
     [Header("TICKLE")]
     public float tickleDuration = 10f;
     private float currentTickleTimer = -1f;
@@ -39,7 +43,7 @@ public class Menino : MonoBehaviour
     private float stopTimerInputBuffer = 0.5f;
     private bool hasStoppedinCurrentTickleSequence = false;
 
-    [Header("TICKLE FINISHED")]
+    [Header("TICKLE FINISHED SLIGHTLY ANGRY")]
     public float tickleFinishedDuration = 3f;
     private float tickleFinishedTimer = 0f;
 
@@ -48,6 +52,7 @@ public class Menino : MonoBehaviour
     public SpriteRenderer rend;
 
     public Action OnCompleteHoverBar;
+    public Action OnCompleteFallAnimation;
     public Action OnStopTickle;
     public Action OnCompleteTickleCount;
     public Action OnClickedTitleScreenMenino;
@@ -72,6 +77,10 @@ public class Menino : MonoBehaviour
             Run();
             MouseHoverUpdate();
         }
+        else if (GameManager.instance.CurrentState is StateFall)
+        {
+            FallStateUpdate();
+        }
         else if (GameManager.instance.CurrentState is StateTickle)
         {
             TickleInputUpdate();
@@ -80,9 +89,9 @@ public class Menino : MonoBehaviour
         else if (GameManager.instance.CurrentState is StateTickleStop)
         {
             TickleStopTimeUpdate();
-            if(stopTimer > stopTimerInputBuffer)
+            if (stopTimer > stopTimerInputBuffer)
             {
-                if(AnyLetterKeyDown())
+                if (AnyLetterKeyDown())
                     OnTickledDuringStopTime();
             }
         }
@@ -201,6 +210,19 @@ public class Menino : MonoBehaviour
         currentWalkDuration = UnityEngine.Random.Range(minWalkDuration, maxWalkDuration);
         walkTimer = currentWalkDuration;
         moveDirection = GetRandomDirectionInsideBounds();
+    }
+
+    public void Fall()
+    {
+        fallTimer = 0f;
+        anim.Play("fall");
+    }
+
+    private void FallStateUpdate()
+    {
+        fallTimer += Time.deltaTime;
+        if (fallTimer > fallDuration)
+            OnCompleteFallAnimation?.Invoke();
     }
 
     private Vector2 GetRandomDirectionInsideBounds()
@@ -323,6 +345,8 @@ public class Menino : MonoBehaviour
     private void Tickle()
     {
         vfx.FlashHit(Color.white, 0.1f);
+
+        anim.Play("laughs", 0, UnityEngine.Random.Range(0f, 1f));
 
         tickleCounter--;
 
