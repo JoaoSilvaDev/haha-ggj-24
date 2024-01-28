@@ -250,10 +250,13 @@ public class Menino : MonoBehaviour
     }
     private void WalkStraight()
     {
-        if(moveDirection.magnitude > 0.01f)
-            SoundManager.instance.PlaySound("run-loop-breath", true); 
-        else
-            SoundManager.instance.StopSound("run-loop-breath");
+        if(GameManager.instance.CurrentState is not StateLose)
+        {
+            if(moveDirection.magnitude > 0.01f)
+                SoundManager.instance.PlaySound("run-loop-breath", true); 
+            else
+                SoundManager.instance.StopSound("run-loop-breath");
+        }
 
         transform.position += moveDirection * walkSpeed * Time.deltaTime;
     }

@@ -158,7 +158,7 @@ MonoBehaviour:
     pitchOffset: 0
   - soundname: lose_runaway
     clips:
-    - {fileID: 8300000, guid: 89e4c32c83c88984c8ad889a86eb3247, type: 3}
+    - {fileID: 8300000, guid: 297351edfef434544a78232dca05e17e, type: 3}
     volume: 1
     loop: 0
     pitchRange: 0
@@ -172,7 +172,7 @@ MonoBehaviour:
     pitchOffset: 0
   - soundname: result-screen
     clips:
-    - {fileID: 8300000, guid: a76fb73929b3fdc42a114bd92c8d0e4b, type: 3}
+    - {fileID: 8300000, guid: 2125d8e3b0611584c98de4873e5fe7ad, type: 3}
     volume: 1
     loop: 1
     pitchRange: 0
