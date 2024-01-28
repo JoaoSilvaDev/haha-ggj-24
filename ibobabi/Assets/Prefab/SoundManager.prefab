@@ -93,8 +93,8 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 89e4c32c83c88984c8ad889a86eb3247, type: 3}
     volume: 0.7
     loop: 0
-    pitchRange: 1
-    pitchOffset: 0
+    pitchRange: 0.5
+    pitchOffset: 0.25
   - soundname: fart
     clips:
     - {fileID: 8300000, guid: 9727e79a2dc9d7f4a836523b8a8fa289, type: 3}
