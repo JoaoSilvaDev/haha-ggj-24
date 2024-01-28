@@ -159,6 +159,14 @@ public class SoundManager : MonoBehaviour
         if (audioSourceToStop != null)
             audioSourceToStop.Stop();
     }
+    public void StopAllSounds()
+    {
+        foreach (AudioSource audioSource in audioSources)
+        {
+            if (audioSource.isPlaying)
+                audioSource.Stop();
+        }
+    }
 
     private AudioSource GetFreeAudioSource()
     {

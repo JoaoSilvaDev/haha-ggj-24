@@ -12,6 +12,6 @@ public class StateTitleScreen : State
     {
         base.OnExitState();
         SoundManager.instance.StopSound("sleep");
-        SoundManager.instance.PlaySound("fart");
+        SoundManager.instance.PlaySound("awake");
     }
 }
