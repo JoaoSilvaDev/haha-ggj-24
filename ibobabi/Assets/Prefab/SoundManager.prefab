@@ -90,7 +90,12 @@ MonoBehaviour:
     pitchOffset: 0
   - soundname: laugh
     clips:
-    - {fileID: 8300000, guid: 89e4c32c83c88984c8ad889a86eb3247, type: 3}
+    - {fileID: 8300000, guid: 3bbebed1c6479cc4ea9717199390c657, type: 3}
+    - {fileID: 8300000, guid: 1858cb8788974174aba31bad2ab8a92b, type: 3}
+    - {fileID: 8300000, guid: 85c624ce00eaf8c41a844179ee758407, type: 3}
+    - {fileID: 8300000, guid: 3f5005546edc3ee4fa124a35378aa1cd, type: 3}
+    - {fileID: 8300000, guid: 803fe34c1af3b1a408d6f89e94cb145e, type: 3}
+    - {fileID: 8300000, guid: e3b2077afb4ab3046821f14c875e820f, type: 3}
     volume: 0.7
     loop: 0
     pitchRange: 0.5
@@ -118,7 +123,9 @@ MonoBehaviour:
     pitchOffset: 0
   - soundname: tickle_end
     clips:
-    - {fileID: 8300000, guid: 18629a0a18ce47c47b69c9af92a62b21, type: 3}
+    - {fileID: 8300000, guid: 000cd7108d42eef42b014323777c5f43, type: 3}
+    - {fileID: 8300000, guid: 056a82f2641acfa4b9bb4258ee7766ce, type: 3}
+    - {fileID: 8300000, guid: b27f9ad8bb7ab834ebebe27e79b3ff4b, type: 3}
     volume: 1
     loop: 0
     pitchRange: 0
@@ -130,9 +137,20 @@ MonoBehaviour:
     loop: 0
     pitchRange: 0
     pitchOffset: 0
+  - soundname: stop_before
+    clips:
+    - {fileID: 8300000, guid: 95fc591a4d42a0844806250cbddfa79e, type: 3}
+    volume: 1
+    loop: 0
+    pitchRange: 0
+    pitchOffset: 0
   - soundname: stop
     clips:
-    - {fileID: 8300000, guid: bc20b00d24ab14447bfd12aa2950f127, type: 3}
+    - {fileID: 8300000, guid: 1289f7c8b01cfa946abb5b7b21962cea, type: 3}
+    - {fileID: 8300000, guid: b5b821c6d1305fe4a91afa794d88f0cd, type: 3}
+    - {fileID: 8300000, guid: cb8744686c196f542aa2de8687a1d5c5, type: 3}
+    - {fileID: 8300000, guid: 45a202ca09d1dfd4ba7bd91cf75105a2, type: 3}
+    - {fileID: 8300000, guid: 40ab589270d827140bb65d221865917a, type: 3}
     volume: 1
     loop: 0
     pitchRange: 0
