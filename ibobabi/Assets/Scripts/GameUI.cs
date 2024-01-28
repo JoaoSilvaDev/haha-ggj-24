@@ -30,6 +30,7 @@ public class GameUI : MonoBehaviour
 
     [Header("RESULTS SCREEN")]
     public TextMeshProUGUI ticklesText;
+    public CanvasGroup resultsUILabels;
     public Image resultsBackground;
     public CanvasGroup resultsUI;
 
@@ -157,12 +158,14 @@ public class GameUI : MonoBehaviour
             if (value < 0f)
             {
                 ticklesText.alpha = 0f;
+                resultsUILabels.alpha = 0f;
                 if (GameManager.instance.loseCondition == GameManager.LoseConditions.Runaway)
                     resultsBackground.color = new UnityEngine.Color(resultsBackground.color.r, resultsBackground.color.g, resultsBackground.color.b, 0f);
             }
             else
             {
                 ticklesText.alpha = value;
+                resultsUILabels.alpha = value;
                 if (GameManager.instance.loseCondition == GameManager.LoseConditions.Runaway)
                     resultsBackground.color = new UnityEngine.Color(resultsBackground.color.r, resultsBackground.color.g, resultsBackground.color.b, value);
             }
