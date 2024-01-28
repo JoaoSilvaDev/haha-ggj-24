@@ -4251,8 +4251,8 @@ MonoBehaviour:
   visualHitFrequency: 0.2
   visualHitScaleAmount: 0.3
   fallDuration: 1.5
-  tickleDuration: 3
-  minStopDuration: 5
+  tickleDuration: 5
+  minStopDuration: 3
   maxStopDuration: 5
   tickleFinishedDuration: 2
   runawayScreenDuration: 2
