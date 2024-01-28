@@ -86,6 +86,7 @@ public class Menino : MonoBehaviour
         }
         else if (GameManager.instance.CurrentState is StateFall)
         {
+            SoundManager.instance.StopSound("run-loop-breath");
             FallStateUpdate();
         }
         else if (GameManager.instance.CurrentState is StateTickle)
@@ -196,14 +197,29 @@ public class Menino : MonoBehaviour
         {
             // 5% chance of staying still
             if (UnityEngine.Random.Range(0, 20) > 19)
+            {
                 StopMovement(minWalkDuration);
+            }
             else
+            {
                 SetNewWalkDuration();
+            }
         }
     }
     private void WalkStraight()
     {
+        if(moveDirection.magnitude > 0.01f)
+            SoundManager.instance.PlaySound("run-loop-breath", true); 
+        else
+            SoundManager.instance.StopSound("run-loop-breath");
+
         transform.position += moveDirection * walkSpeed * Time.deltaTime;
+    }
+    
+    // this is called as an animation event
+    public void RunStepSound()
+    {
+        SoundManager.instance.PlaySound("run-step");
     }
 
     private void StopMovement(float duration)
@@ -304,6 +320,7 @@ public class Menino : MonoBehaviour
     {
         vfx.ScaleHit(UnityEngine.Random.Range(visualHitScaleAmount, visualHitScaleAmount), true, false, 0.2f);
         vfx.FlashHit(Color.white, 0.2f);
+        SoundManager.instance.PlaySound("slap");
         CameraController.instance.Shake(cameraShakeHitDuration, cameraShakeHit);
     }
     #endregion

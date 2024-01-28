@@ -45,13 +45,43 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: ui_accept
+  - soundname: ui_accept
     clips:
     - {fileID: 8300000, guid: b731009ab09c56f43b49baeb94f0a242, type: 3}
     volume: 0
     loop: 0
     pitchRange: 0.1
-  - name: fart
+    pitchOffset: 0
+  - soundname: fall
+    clips:
+    - {fileID: 8300000, guid: fd679341e04785e459776d14c4e2f595, type: 3}
+    volume: 0.6
+    loop: 0
+    pitchRange: 0
+    pitchOffset: 0
+  - soundname: slap
+    clips:
+    - {fileID: 8300000, guid: e36373b26f7cb7a458d43efebdf19781, type: 3}
+    - {fileID: 8300000, guid: 2821c3b3403e139479339f8cc297afe5, type: 3}
+    volume: 0.15
+    loop: 0
+    pitchRange: 0.2
+    pitchOffset: 0
+  - soundname: run-loop-breath
+    clips:
+    - {fileID: 8300000, guid: f510426e05bf8d54c8d9bbbd3c031512, type: 3}
+    volume: 0.5
+    loop: 1
+    pitchRange: 0
+    pitchOffset: 0
+  - soundname: run-step-loop
+    clips:
+    - {fileID: 8300000, guid: 38327022d36b6244fa70bc015113c4fe, type: 3}
+    volume: 1
+    loop: 1
+    pitchRange: 0
+    pitchOffset: 0
+  - soundname: fart
     clips:
     - {fileID: 8300000, guid: 4be0054c8e158e646ad092f973d5de74, type: 3}
     - {fileID: 8300000, guid: 9727e79a2dc9d7f4a836523b8a8fa289, type: 3}
@@ -59,13 +89,8 @@ MonoBehaviour:
     volume: 1
     loop: 0
     pitchRange: 0
-  - name: tripping
-    clips:
-    - {fileID: 8300000, guid: af84abae02c0d204fb78b80051f2ddcf, type: 3}
-    volume: 1
-    loop: 0
-    pitchRange: 0
-  - name: laugh
+    pitchOffset: 0
+  - soundname: laugh
     clips:
     - {fileID: 8300000, guid: 3bbebed1c6479cc4ea9717199390c657, type: 3}
     - {fileID: 8300000, guid: 1858cb8788974174aba31bad2ab8a92b, type: 3}
@@ -74,104 +99,96 @@ MonoBehaviour:
     volume: 1
     loop: 1
     pitchRange: 0
-  - name: breath
-    clips:
-    - {fileID: 8300000, guid: f510426e05bf8d54c8d9bbbd3c031512, type: 3}
-    volume: 1
-    loop: 1
-    pitchRange: 0
-  - name: slap
-    clips:
-    - {fileID: 8300000, guid: e36373b26f7cb7a458d43efebdf19781, type: 3}
-    - {fileID: 8300000, guid: 2821c3b3403e139479339f8cc297afe5, type: 3}
-    - {fileID: 8300000, guid: fd679341e04785e459776d14c4e2f595, type: 3}
-    volume: 1
-    loop: 0
-    pitchRange: 0
-  - name: sleep
+    pitchOffset: 0
+  - soundname: sleep
     clips:
     - {fileID: 8300000, guid: 70c5b8caa08ecac478e842272089cf27, type: 3}
     volume: 1
     loop: 1
     pitchRange: 0
-  - name: tickle_action
+    pitchOffset: 0
+  - soundname: tickle_action
     clips:
     - {fileID: 8300000, guid: ffad1639d386e2d42b0de2273a1fd527, type: 3}
     volume: 1
     loop: 1
     pitchRange: 0
-  - name: tickle_start
+    pitchOffset: 0
+  - soundname: tickle_start
     clips:
     - {fileID: 8300000, guid: ee2695a16d2ba1740a36d7b3b1661cbd, type: 3}
     volume: 1
     loop: 0
     pitchRange: 0
-  - name: tickle_end
+    pitchOffset: 0
+  - soundname: tickle_end
     clips:
     - {fileID: 8300000, guid: 18629a0a18ce47c47b69c9af92a62b21, type: 3}
     volume: 1
     loop: 0
     pitchRange: 0
-  - name: awake
+    pitchOffset: 0
+  - soundname: awake
     clips:
     - {fileID: 8300000, guid: 1c9918ee4c479ca43935710ab0638313, type: 3}
     volume: 1
     loop: 0
     pitchRange: 0
-  - name: stop
+    pitchOffset: 0
+  - soundname: stop
     clips:
     - {fileID: 8300000, guid: bc20b00d24ab14447bfd12aa2950f127, type: 3}
     volume: 1
     loop: 0
     pitchRange: 0
-  - name: stop_after
+    pitchOffset: 0
+  - soundname: stop_after
     clips:
     - {fileID: 8300000, guid: c59d8f9ce5472964e8e0c9cc8066fe45, type: 3}
     volume: 1
     loop: 0
     pitchRange: 0
-  - name: lose_stop
+    pitchOffset: 0
+  - soundname: lose_stop
     clips:
     - {fileID: 8300000, guid: 1cfb5dc53e76e0146bde2e2c4906ca3e, type: 3}
     volume: 1
     loop: 0
     pitchRange: 0
-  - name: lose_tickle
+    pitchOffset: 0
+  - soundname: lose_tickle
     clips:
     - {fileID: 8300000, guid: 89e4c32c83c88984c8ad889a86eb3247, type: 3}
     volume: 1
     loop: 0
     pitchRange: 0
-  - name: steps
-    clips:
-    - {fileID: 8300000, guid: 38327022d36b6244fa70bc015113c4fe, type: 3}
-    - {fileID: 8300000, guid: 3b199ba0e33c89743975a4a92b5c1f7c, type: 3}
-    - {fileID: 8300000, guid: dfa0f45180e278f46a2aac9f0dfd205c, type: 3}
-    volume: 1
-    loop: 1
-    pitchRange: 0.6
-  - name: reload_gun
+    pitchOffset: 0
+  - soundname: reload_gun
     clips:
     - {fileID: 8300000, guid: ace4f8e5904570a45bded3141bbdab92, type: 3}
     volume: 1
     loop: 0
     pitchRange: 0
-  - name: gun
+    pitchOffset: 0
+  - soundname: gun
     clips:
     - {fileID: 8300000, guid: eae97b018809b9c44a0f67eb1a247c08, type: 3}
     volume: 1
     loop: 0
     pitchRange: 0
-  - name: music
+    pitchOffset: 0
+  - soundname: music
     clips:
     - {fileID: 8300000, guid: a76fb73929b3fdc42a114bd92c8d0e4b, type: 3}
     volume: 1
     loop: 1
     pitchRange: 0
-  - name: ui_back
+    pitchOffset: 0
+  - soundname: ui_back
     clips:
     - {fileID: 8300000, guid: c8faf90a280c8b749998420f3a74b87b, type: 3}
     volume: 1
     loop: 0
     pitchRange: 0
-  maxSimultaneousSounds: 5
+    pitchOffset: 0
+  maxSimultaneousSounds: 10

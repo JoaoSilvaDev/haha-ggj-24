@@ -1,16 +1,18 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Linq;
 
 [System.Serializable]
 public class Sound
 {
-    public string name;
+    public string soundname;
     public List<AudioClip> clips;
     [Range(0f, 1f)]
     public float volume = 1f;
     public bool loop = false;
     [Range(0f, 3f)]
     public float pitchRange = 0.1f; // Adjust the pitch range as needed
+    public float pitchOffset = 0f;
 }
 
 public class SoundManager : MonoBehaviour
@@ -40,16 +42,25 @@ public class SoundManager : MonoBehaviour
             AudioSource newAudioSource = gameObject.AddComponent<AudioSource>();
             audioSources.Add(newAudioSource);
         }
-
-        foreach (Sound sound in sounds)
-        {
-            sound.name = sound.clips[0].name; // Set the name to the first clip's name for easier reference
-        }
     }
 
-    public void PlaySound(string clipName)
+    public void PlaySound(string clipName, bool preventDuplicate = false)
     {
-        Sound soundToPlay = sounds.Find(sound => sound.name == clipName);
+        Sound soundToPlay = null;
+        for (int i = 0; i < sounds.Count; i++)
+        {
+            if (clipName == sounds[i].soundname)
+            {
+                soundToPlay = sounds[i];
+                break;
+            }
+        }
+
+        if(preventDuplicate)
+        {
+            if (IsSoundPlaying(clipName))
+                return;
+        }
 
         if (soundToPlay != null)
         {
@@ -65,8 +76,10 @@ public class SoundManager : MonoBehaviour
                 if (soundToPlay.pitchRange > 0)
                 {
                     float randomPitch = 1f + Random.Range(-soundToPlay.pitchRange, soundToPlay.pitchRange);
-                    freeAudioSource.pitch = randomPitch;
+                    freeAudioSource.pitch = randomPitch + soundToPlay.pitchOffset;
                 }
+                else
+                    freeAudioSource.pitch += soundToPlay.pitchOffset;
 
                 freeAudioSource.Play();
 
@@ -87,18 +100,68 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    public void StopSound(string clipName)
+    public bool IsSoundPlaying(string soundName)
     {
-        AudioSource audioSourceToStop = audioSources.Find(source => source.isPlaying && source.clip != null && source.clip.name == clipName);
+        Sound soundToCheck = null;
+        for (int i = 0; i < sounds.Count; i++)
+        {
+            if (soundName == sounds[i].soundname)
+            {
+                soundToCheck = sounds[i];
+                break;
+            }
+        }
+
+        if (soundToCheck == null)
+            return false;
+
+        for (int i = 0; i < audioSources.Count; i++)
+        {
+            if (audioSources[i].isPlaying && soundToCheck.soundname == soundName)
+                return true;
+        }
+
+        return false;
+    }
+
+    public AudioSource GetAudioSourcePlayingSound(string soundName)
+    {
+        Sound soundToCheck = null;
+        for (int i = 0; i < sounds.Count; i++)
+        {
+            if (soundName == sounds[i].soundname)
+            {
+                soundToCheck = sounds[i];
+                break;
+            }
+        }
+
+        if (soundToCheck == null)
+            return null;
+
+        for (int i = 0; i < audioSources.Count; i++)
+        {
+            if (audioSources[i].isPlaying)
+            {
+                for(int s = 0; s < soundToCheck.clips.Count; s++)
+                {
+                    if(soundToCheck.clips[s] == audioSources[i].clip)
+                    {
+                        return audioSources[i];
+                    }
+                }
+            }
+        }
+
+        return null;
+    }
+
+    public void StopSound(string soundName)
+    {
+        AudioSource audioSourceToStop = GetAudioSourcePlayingSound(soundName);
 
         if (audioSourceToStop != null)
-        {
             audioSourceToStop.Stop();
-        }
-        else
-        {
-            Debug.LogWarning("Sound not found or not currently playing: " + clipName);
-        }
     }
 
     private AudioSource GetFreeAudioSource()
