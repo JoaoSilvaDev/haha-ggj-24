@@ -1,3 +1,5 @@
+using DG.Tweening;
+using System.Drawing;
 using TMPro;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
@@ -24,6 +26,11 @@ public class GameUI : MonoBehaviour
     [Header("LOSE STATE UI")]
     public CanvasGroup loseUI;
     public TextMeshProUGUI loseScreenPressAnyKey;
+
+    [Header("RESULTS SCREEN")]
+    public TextMeshProUGUI ticklesText;
+    public Image resultsBackground;
+    public CanvasGroup resultsUI;
 
     [Header("DEBUG")]
     public CanvasGroup debugUI;
@@ -55,6 +62,12 @@ public class GameUI : MonoBehaviour
 
         GameManager.instance.loseState.OnEnter += OnEnterLoseState;
         GameManager.instance.loseState.OnExit += OnExitLoseState;
+
+        GameManager.instance.loseState.OnEnter += OnEnterLoseState;
+        GameManager.instance.loseState.OnExit += OnExitLoseState;
+
+        GameManager.instance.resultsState.OnEnter += OnEnterResultsState;
+        GameManager.instance.resultsState.OnExit += OnExitResultsState;
     }
     private void OnDisable()
     {
@@ -72,6 +85,9 @@ public class GameUI : MonoBehaviour
 
         GameManager.instance.loseState.OnEnter -= OnEnterLoseState;
         GameManager.instance.loseState.OnExit -= OnExitLoseState;
+
+        GameManager.instance.resultsState.OnEnter -= OnEnterResultsState;
+        GameManager.instance.resultsState.OnExit -= OnExitResultsState;
     }
 
     private void Update()
@@ -100,7 +116,7 @@ public class GameUI : MonoBehaviour
         stateDebugText.text = "state: " + GameManager.instance.CurrentState.GetType().Name;
     }
 
-    private void OnEnterTitlescreenState() { titleScreenUI.alpha = 1f; GameManager.instance.ResetGame(); }
+    private void OnEnterTitlescreenState() { print("OnEnterTitlescreenState"); titleScreenUI.alpha = 1f; GameManager.instance.ResetGame(); }
     private void OnExitTitlescreenState() { titleScreenUI.alpha = 0f; }
 
     private void OnEnterRunState() { runUI.alpha = 1f; }
@@ -117,9 +133,37 @@ public class GameUI : MonoBehaviour
         loseScreenPressAnyKey.text = GameManager.instance.loseCondition.ToString();
         loseUI.alpha = 1f;
     }
-
     private void OnExitLoseState()
     {
         loseUI.alpha = 0f;
+    }
+
+    private void OnEnterResultsState()
+    {
+        ticklesText.text = "Tickles: " + GameManager.instance.menino.TotalTickes;
+        resultsUI.alpha = 1f;
+
+        if (GameManager.instance.loseCondition == GameManager.LoseConditions.TooManyTickles)
+            resultsBackground.color = new UnityEngine.Color(0f, 0f, 0f, 1f);
+
+        DOVirtual.Float(-1f, 1f, 1f, (value) =>
+        {
+            if (value < 0f)
+            {
+                ticklesText.alpha = 0f;
+                if (GameManager.instance.loseCondition == GameManager.LoseConditions.Runaway)
+                    resultsBackground.color = new UnityEngine.Color(resultsBackground.color.r, resultsBackground.color.g, resultsBackground.color.b, 0f);
+            }
+            else
+            {
+                ticklesText.alpha = value;
+                if (GameManager.instance.loseCondition == GameManager.LoseConditions.Runaway)
+                    resultsBackground.color = new UnityEngine.Color(resultsBackground.color.r, resultsBackground.color.g, resultsBackground.color.b, value);
+            }
+        });
+    }
+    private void OnExitResultsState()
+    {
+        resultsUI.alpha = 0f;
     }
 }

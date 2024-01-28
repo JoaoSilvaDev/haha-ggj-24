@@ -48,7 +48,18 @@ public class Menino : MonoBehaviour
     public float tickleFinishedDuration = 3f;
     private float tickleFinishedTimer = 0f;
 
-    [Header("Camera Shake")]
+    [Header("RUNAWAY")]
+    public float runawayScreenDuration = 2f;
+    private float runawayScreenTimer = 0f;
+
+    [Header("RESULTS")]
+    public float resultsTimeBeforeSkip = 0.7f;
+    private float resultsBeforeSkipTimer = 0f;
+
+    private int totalTickles = 0;
+    public int TotalTickes {  get { return totalTickles; } }
+
+    [Header("CAMERA SHAKE")]
     public float cameraShakeHit = 0.02f;
     public float cameraShakeHitDuration = 0.2f;
     public float cameraShakeTickle = 0.02f;
@@ -67,6 +78,8 @@ public class Menino : MonoBehaviour
     public Action OnTickledDuringStopTime;
     public Action OnFinishedStopTickleTimer;
     public Action OnFinishedFinishedTickleTimer;
+    public Action OnGoToResultsScreen;
+    public Action OnSkipResultsScreen;
 
     #region UNITY FUNCTIONS
     private void Start()
@@ -101,12 +114,32 @@ public class Menino : MonoBehaviour
             if (stopTimer > stopTimerInputBuffer)
             {
                 if (AnyLetterKeyDown())
+                {
+                    anim.Play("gun");
                     OnTickledDuringStopTime();
+                }
             }
         }
         else if (GameManager.instance.CurrentState is StateTickleFinished)
         {
             TickleFinishedTimeUpdate();
+        }
+        else if(GameManager.instance.CurrentState is StateLose && GameManager.instance.loseCondition == GameManager.LoseConditions.Runaway)
+        {
+            moveDirection = Vector2.up;
+            WalkStraight();
+            runawayScreenTimer += Time.deltaTime;
+            if (runawayScreenTimer > runawayScreenDuration)
+                GoToResultsScreen();
+        }
+        else if(GameManager.instance.CurrentState is StateResults)
+        {
+            resultsBeforeSkipTimer += Time.deltaTime;
+            if(resultsBeforeSkipTimer >= resultsTimeBeforeSkip)
+            {
+                if (AnyLetterKeyDown())
+                    OnSkipResultsScreen?.Invoke();
+            }
         }
 
         // check click
@@ -156,7 +189,8 @@ public class Menino : MonoBehaviour
         {
             anim.Play("sleep");
         }
-        else if (GameManager.instance.CurrentState is StateRun)
+        else if (GameManager.instance.CurrentState is StateRun ||
+            (GameManager.instance.CurrentState is StateLose && GameManager.instance.loseCondition == GameManager.LoseConditions.Runaway))
         {
             if (moveDirection.y > 0.1f)
                 anim.Play("walk-up");
@@ -178,7 +212,15 @@ public class Menino : MonoBehaviour
     
     public void ResetMenino()
     {
+        transform.position = new Vector3(
+            UnityEngine.Random.Range(-6f, 6f),
+            UnityEngine.Random.Range(-3f, 3f),
+            0f);
+
         walkTimer = 0f;
+        totalTickles = 0;
+        runawayScreenTimer = 0f;
+        resultsBeforeSkipTimer = 0f;
     }
 
     #region MOVEMENT
@@ -313,7 +355,9 @@ public class Menino : MonoBehaviour
     private void OnClickedMenino()
     {
         if (GameManager.instance.CurrentState is StateTitleScreen)
+        {
             OnClickedTitleScreenMenino?.Invoke();
+        }
     }
 
     private void HoverVisualHit()
@@ -389,6 +433,7 @@ public class Menino : MonoBehaviour
         anim.Play("laughs", 0, UnityEngine.Random.Range(0f, 1f));
 
         tickleCounter--;
+        totalTickles++;
 
         if (tickleCounter <= 0)
             OnCompleteTickleCount?.Invoke();
@@ -427,7 +472,15 @@ public class Menino : MonoBehaviour
     {
         tickleFinishedTimer += Time.deltaTime;
         if (tickleFinishedTimer >= tickleFinishedDuration)
+        {
+            runawayScreenTimer = 0f;
             OnFinishedFinishedTickleTimer?.Invoke();
+        }
+    }
+
+    public void GoToResultsScreen()
+    {
+        OnGoToResultsScreen?.Invoke();
     }
     #endregion
 
