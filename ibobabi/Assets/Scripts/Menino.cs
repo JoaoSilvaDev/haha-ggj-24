@@ -491,8 +491,14 @@ public class Menino : MonoBehaviour
         if (stopTimer >= stopDuration)
         {
             stopTimer = 0f;
+            FinishedStopTickle();
             OnFinishedStopTickleTimer?.Invoke();
         }
+    }
+
+    public void FinishedStopTickle()
+    {
+        anim.Play("hyperventilate");
     }
 
     private void StopTickle()
