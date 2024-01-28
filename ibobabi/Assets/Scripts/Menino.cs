@@ -13,6 +13,7 @@ public class Menino : MonoBehaviour
     private Vector3 debugTargetPoint;  
 
     [Header("MOUSE HOVER")]
+    public float mouseHoverClickIncrease = 0.1f;
     public float mouseHoverIncreaseSpeed = 1f;
     public float mouseHoverDecreaseSpeed = 1f;
     private float mouseHoverProgress = 0f;
@@ -351,6 +352,12 @@ public class Menino : MonoBehaviour
         {
             // mouse progress
             mouseHoverProgress += mouseHoverIncreaseSpeed * Time.deltaTime;
+            if(Input.GetMouseButtonDown(0))
+            {
+                mouseHoverProgress += mouseHoverClickIncrease;
+                HoverVisualHit();
+            }
+
             if (mouseHoverProgress > 1f)
             {
                 mouseHoverProgress = 1f;
@@ -359,7 +366,7 @@ public class Menino : MonoBehaviour
 
             // visual stuff
             visualHitTime += Time.deltaTime;
-            if(visualHitTime > visualHitFrequency)
+            if(visualHitTime > visualHitFrequency && mouseHoverIncreaseSpeed > 0f)
             {
                 HoverVisualHit();
                 visualHitTime = 0f;
@@ -481,7 +488,6 @@ public class Menino : MonoBehaviour
 
     private void StopTickle()
     {
-        print("StopTickle");
         SoundManager.instance.StopAllSounds();
         SoundManager.instance.PlaySound("stop-before");
         stopTimer = 0f;
