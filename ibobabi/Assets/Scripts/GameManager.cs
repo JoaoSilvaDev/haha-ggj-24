@@ -66,6 +66,8 @@ public class GameManager : MonoBehaviour
         menino.OnFinishedFinishedTickleTimer += GoToRunState;
         menino.OnFinishedTickleTimer += GoToLoseStateRunaway;
         menino.OnTickledDuringStopTime += GoToLoseStateTooManyTickles;
+
+        tickleStopState.OnExit += FadeOutStopBackground;
     }
 
     void Update()
@@ -124,12 +126,17 @@ public class GameManager : MonoBehaviour
         // Change State
         SetState(tickleState);
     }
-    
+
+    void FadeOutStopBackground()
+    {
+        background.Play("bg-red-fadeout");
+    }
+
 
     // called when going back to TickleState from StopTickle
     private void GoBackToTickle()
     {
-        background.Play("bg-red-fadeout");
+        FadeOutStopBackground();
         // Change State        
         SetState(tickleState);
     }
