@@ -4736,7 +4736,7 @@ MonoBehaviour:
   cursorHoverClicked: {fileID: 2800000, guid: 8617874ced7c8d446803810733ac2b45, type: 3}
   cameraShakeHit: 0.015
   cameraShakeHitDuration: 0.05
-  cameraShakeTickle: 0.01
+  cameraShakeTickle: 0.005
   cameraShakeTickleDuration: 0.05
   anim: {fileID: 2050497676}
   vfx: {fileID: 2050497677}
