@@ -146,7 +146,7 @@ public class GameUI : MonoBehaviour
 
     private void OnEnterResultsState()
     {
-        ticklesText.text = "Tickles: " + GameManager.instance.menino.TotalTickes;
+        ticklesText.text = GameManager.instance.menino.TotalTickes.ToString();
         resultsUI.alpha = 1f;
 
         if (GameManager.instance.loseCondition == GameManager.LoseConditions.TooManyTickles)

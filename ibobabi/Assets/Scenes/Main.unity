@@ -1149,7 +1149,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 1
+  orthographic size: 4
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1194,7 +1194,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zoomOutCameraSize: 4
   zoomMidCameraSize: 2
-  zoomInCameraSize: 1
+  zoomInCameraSize: 0.65
   zoomInMoreCameraSize: 0.5
   zoomLerpSpeedDefault: 25
   zoomLerpSpeedFaster: 45
@@ -1704,8 +1704,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 891327382}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.46, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.3, z: 0.5}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2050497672}
@@ -1752,7 +1752,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 49d5a14dba1b2da47b73d53bdce2d431, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 0.12156863}
   m_FlipX: 0
   m_FlipY: 0
@@ -4720,9 +4720,11 @@ MonoBehaviour:
   mouseHoverIncreaseSpeed: 0
   mouseHoverDecreaseSpeed: 0.6
   visualHitFrequency: 0.2
-  visualHitScaleAmount: 0.3
+  visualHitScaleAmount: 0.5
   fallDuration: 1.5
   tickleDuration: 5
+  minTimeBetweenLaughPoses: 0.3
+  visualTickleScaleAmount: 0.1
   minStopDuration: 3
   maxStopDuration: 5
   tickleFinishedDuration: 2
@@ -4734,7 +4736,7 @@ MonoBehaviour:
   cursorHoverClicked: {fileID: 2800000, guid: 8617874ced7c8d446803810733ac2b45, type: 3}
   cameraShakeHit: 0.015
   cameraShakeHitDuration: 0.05
-  cameraShakeTickle: 0.03
+  cameraShakeTickle: 0.01
   cameraShakeTickleDuration: 0.05
   anim: {fileID: 2050497676}
   vfx: {fileID: 2050497677}

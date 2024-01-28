@@ -699,8 +699,8 @@ TextureImporter:
         y: 600
         width: 100
         height: 100
-      alignment: 9
-      pivot: {x: 0.5, y: 0.6}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -720,8 +720,8 @@ TextureImporter:
         y: 600
         width: 100
         height: 100
-      alignment: 9
-      pivot: {x: 0.5, y: 0.6}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -741,8 +741,8 @@ TextureImporter:
         y: 600
         width: 100
         height: 100
-      alignment: 9
-      pivot: {x: 0.5, y: 0.6}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -762,8 +762,8 @@ TextureImporter:
         y: 600
         width: 100
         height: 100
-      alignment: 9
-      pivot: {x: 0.5, y: 0.6}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -783,8 +783,8 @@ TextureImporter:
         y: 600
         width: 100
         height: 100
-      alignment: 9
-      pivot: {x: 0.5, y: 0.6}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1329,8 +1329,8 @@ TextureImporter:
         y: 300
         width: 100
         height: 100
-      alignment: 9
-      pivot: {x: 0.5, y: 0.7}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1350,8 +1350,8 @@ TextureImporter:
         y: 300
         width: 100
         height: 100
-      alignment: 9
-      pivot: {x: 0.5, y: 0.7}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1371,8 +1371,8 @@ TextureImporter:
         y: 300
         width: 100
         height: 100
-      alignment: 9
-      pivot: {x: 0.5, y: 0.7}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1392,8 +1392,8 @@ TextureImporter:
         y: 300
         width: 100
         height: 100
-      alignment: 9
-      pivot: {x: 0.5, y: 0.7}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1413,8 +1413,8 @@ TextureImporter:
         y: 300
         width: 100
         height: 100
-      alignment: 9
-      pivot: {x: 0.5, y: 0.7}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1434,8 +1434,8 @@ TextureImporter:
         y: 300
         width: 100
         height: 100
-      alignment: 9
-      pivot: {x: 0.5, y: 0.7}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1455,8 +1455,8 @@ TextureImporter:
         y: 300
         width: 100
         height: 100
-      alignment: 9
-      pivot: {x: 0.5, y: 0.7}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1543,14 +1543,13 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       menino_13: 1087651128
-      menino_53: 1149965380
       menino_22: 652223422
       menino_32: -447258207
       menino_33: 1378938974
-      menino_19: -34845536
       menino_43: 181620013
       menino_46: -561149834
       menino_57: 1535519309
+      menino_55: -1425941548
       menino_24: -406317918
       menino_59: 2006019180
       menino_0: -1246729927
@@ -1558,15 +1557,16 @@ TextureImporter:
       menino_30: 1436234444
       menino_40: 894839356
       menino_11: 1428572383
+      menino_39: -1513416903
       menino_23: 44443907
       menino_15: 1583580532
       menino_34: 558139047
       menino_49: -1189341753
       menino_60: 1261116213
-      menino_58: -2129136816
       menino_14: 1384704953
-      menino_64: -1667327316
       menino_20: 697799786
+      menino_64: -1667327316
+      menino_58: -2129136816
       menino_18: 1062115844
       menino_16: 1711309843
       menino_35: 2039363864
@@ -1606,10 +1606,10 @@ TextureImporter:
       menino_29: 1132685077
       menino_9: 176353780
       menino_36: 849345339
-      menino_45: -1245285244
-      menino_55: -1425941548
-      menino_39: -1513416903
       menino_65: -471582878
+      menino_19: -34845536
+      menino_53: 1149965380
+      menino_45: -1245285244
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

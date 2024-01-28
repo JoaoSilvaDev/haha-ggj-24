@@ -35,6 +35,9 @@ public class Menino : MonoBehaviour
     public float TickleTimeNormalized {  get { return currentTickleTimer/tickleDuration; } }
     private int tickleCounter = 0;
     public int TickleCounter { get { return tickleCounter; } }
+    public float minTimeBetweenLaughPoses = 0.1f;
+    private float timeSinceLastPose = 0f;
+    public float visualTickleScaleAmount = 0.2f;
 
     [Header("TICKLE STOP")]
     public float minStopDuration = 2f;
@@ -414,6 +417,7 @@ public class Menino : MonoBehaviour
 
     public void StartTickleTimer()
     {
+        timeSinceLastPose = 0f;
         currentTickleTimer = tickleDuration;
     }
 
@@ -439,6 +443,7 @@ public class Menino : MonoBehaviour
     public void TickleTimeUpdate()
     {
         currentTickleTimer -= Time.deltaTime;
+        timeSinceLastPose += Time.deltaTime;
 
         if (currentTickleTimer <= 0f)
             FinishedTickleTimer();
@@ -461,13 +466,17 @@ public class Menino : MonoBehaviour
     private void Tickle()
     {
         SoundManager.instance.PlaySound("laugh");
-        vfx.ScaleHit(UnityEngine.Random.Range(visualHitScaleAmount, visualHitScaleAmount), true, false, 0.2f);
+        vfx.ScaleHit(UnityEngine.Random.Range(visualTickleScaleAmount, visualHitScaleAmount), true, false, 0.1f);
         vfx.FlashHit(Color.white, 0.1f);
         rend.flipX = (UnityEngine.Random.Range(0f,1f) > 0.5f);
 
         CameraController.instance.Shake(cameraShakeTickleDuration, cameraShakeTickle);
 
-        anim.Play("laughs", 0, UnityEngine.Random.Range(0f, 1f));
+        if(timeSinceLastPose > minTimeBetweenLaughPoses)
+        {
+            anim.Play("laughs", 0, UnityEngine.Random.Range(0f, 1f));
+            timeSinceLastPose = 0f;
+        }
 
         tickleCounter--;
         totalTickles++;
