@@ -128,19 +128,15 @@ MonoBehaviour:
     loop: 0
     pitchRange: 0
     pitchOffset: 0
-  - soundname: stop_before
+  - soundname: stop-before
     clips:
-    - {fileID: 8300000, guid: 95fc591a4d42a0844806250cbddfa79e, type: 3}
-    volume: 1
+    - {fileID: 8300000, guid: c34dad43670e2a348ba82a922e6483a8, type: 3}
+    volume: 0.6
     loop: 0
     pitchRange: 0
-    pitchOffset: 0
-  - soundname: stop
+    pitchOffset: -0.25
+  - soundname: say-stop
     clips:
-    - {fileID: 8300000, guid: 1289f7c8b01cfa946abb5b7b21962cea, type: 3}
-    - {fileID: 8300000, guid: b5b821c6d1305fe4a91afa794d88f0cd, type: 3}
-    - {fileID: 8300000, guid: cb8744686c196f542aa2de8687a1d5c5, type: 3}
-    - {fileID: 8300000, guid: 45a202ca09d1dfd4ba7bd91cf75105a2, type: 3}
     - {fileID: 8300000, guid: 40ab589270d827140bb65d221865917a, type: 3}
     volume: 1
     loop: 0

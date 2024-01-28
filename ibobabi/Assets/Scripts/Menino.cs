@@ -456,10 +456,17 @@ public class Menino : MonoBehaviour
 
     private void StopTickle()
     {
+        print("StopTickle");
+        SoundManager.instance.PlaySound("stop-before");
         stopTimer = 0f;
         hasStoppedinCurrentTickleSequence = true;
         rend.flipX = false;
         OnStopTickle?.Invoke();
+    }
+
+    public void MeninoStayStop()
+    {
+        SoundManager.instance.PlaySound("say-stop");
     }
 
     private void TickledDuringStopTime()
