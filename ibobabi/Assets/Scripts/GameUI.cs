@@ -96,11 +96,11 @@ public class GameUI : MonoBehaviour
         if (GameManager.instance.CurrentState is StateRun)
         {
             // GAME UI - mouse hover
-            mouseHoverFillBar.fillAmount = GameManager.instance.menino.MouseHoverProgress;
+            mouseHoverFillBar.fillAmount = 1 - GameManager.instance.menino.MouseHoverProgress;
             mouseHoverBarParent.position = Camera.main.WorldToScreenPoint(GameManager.instance.menino.transform.position);
 
-            if (GameManager.instance.menino.TickleCounter > 0)
-                liveTickleCounter.text = GameManager.instance.menino.TickleCounter.ToString();
+            if (GameManager.instance.menino.TotalTickes > 0)
+                liveTickleCounter.text = GameManager.instance.menino.TotalTickes.ToString();
             else
                 liveTickleCounter.text = "";
         }
