@@ -3393,7 +3393,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 0}
   m_FlipX: 0
@@ -3881,8 +3881,8 @@ GameObject:
   - component: {fileID: 2050497672}
   - component: {fileID: 2050497675}
   - component: {fileID: 2050497671}
-  - component: {fileID: 2050497673}
   - component: {fileID: 2050497676}
+  - component: {fileID: 2050497673}
   - component: {fileID: 2050497677}
   m_Layer: 0
   m_Name: menino
@@ -3981,7 +3981,7 @@ MonoBehaviour:
   mouseHoverDecreaseSpeed: 0.6
   visualHitFrequency: 0.2
   visualHitScaleAmount: 0.3
-  fallDuration: 2
+  fallDuration: 1.5
   tickleDuration: 3
   minStopDuration: 2
   maxStopDuration: 4
