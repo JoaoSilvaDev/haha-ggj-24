@@ -106,7 +106,7 @@ MonoBehaviour:
     volume: 0.6
     loop: 0
     pitchRange: 0
-    pitchOffset: 0
+    pitchOffset: 0.8
   - soundname: tickle_action
     clips:
     - {fileID: 8300000, guid: ffad1639d386e2d42b0de2273a1fd527, type: 3}
