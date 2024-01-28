@@ -52,10 +52,17 @@ MonoBehaviour:
     loop: 0
     pitchRange: 0.1
     pitchOffset: 0
+  - soundname: sleep
+    clips:
+    - {fileID: 8300000, guid: 70c5b8caa08ecac478e842272089cf27, type: 3}
+    volume: 0.7
+    loop: 1
+    pitchRange: 0
+    pitchOffset: 0
   - soundname: fall
     clips:
     - {fileID: 8300000, guid: fd679341e04785e459776d14c4e2f595, type: 3}
-    volume: 0.6
+    volume: 0.4
     loop: 0
     pitchRange: 0
     pitchOffset: 0
@@ -63,7 +70,7 @@ MonoBehaviour:
     clips:
     - {fileID: 8300000, guid: e36373b26f7cb7a458d43efebdf19781, type: 3}
     - {fileID: 8300000, guid: 2821c3b3403e139479339f8cc297afe5, type: 3}
-    volume: 0.15
+    volume: 0.07
     loop: 0
     pitchRange: 0.2
     pitchOffset: 0
@@ -81,30 +88,18 @@ MonoBehaviour:
     loop: 1
     pitchRange: 0
     pitchOffset: 0
-  - soundname: fart
-    clips:
-    - {fileID: 8300000, guid: 4be0054c8e158e646ad092f973d5de74, type: 3}
-    - {fileID: 8300000, guid: 9727e79a2dc9d7f4a836523b8a8fa289, type: 3}
-    - {fileID: 8300000, guid: 515fa8fa55bc475449e663c9308d3a29, type: 3}
-    volume: 1
-    loop: 0
-    pitchRange: 0
-    pitchOffset: 0
   - soundname: laugh
     clips:
-    - {fileID: 8300000, guid: 3bbebed1c6479cc4ea9717199390c657, type: 3}
-    - {fileID: 8300000, guid: 1858cb8788974174aba31bad2ab8a92b, type: 3}
-    - {fileID: 8300000, guid: 85c624ce00eaf8c41a844179ee758407, type: 3}
-    - {fileID: 8300000, guid: 8048b0361150ba1428e396ae3ba60e97, type: 3}
-    volume: 1
-    loop: 1
-    pitchRange: 0
+    - {fileID: 8300000, guid: 89e4c32c83c88984c8ad889a86eb3247, type: 3}
+    volume: 0.7
+    loop: 0
+    pitchRange: 1
     pitchOffset: 0
-  - soundname: sleep
+  - soundname: fart
     clips:
-    - {fileID: 8300000, guid: 70c5b8caa08ecac478e842272089cf27, type: 3}
-    volume: 1
-    loop: 1
+    - {fileID: 8300000, guid: 9727e79a2dc9d7f4a836523b8a8fa289, type: 3}
+    volume: 0.6
+    loop: 0
     pitchRange: 0
     pitchOffset: 0
   - soundname: tickle_action

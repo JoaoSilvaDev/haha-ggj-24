@@ -72,14 +72,14 @@ public class SoundManager : MonoBehaviour
                 freeAudioSource.clip = clipToPlay;
                 freeAudioSource.volume = soundToPlay.volume;
                 freeAudioSource.loop = soundToPlay.loop;
+                freeAudioSource.pitch = 1f;
 
                 if (soundToPlay.pitchRange > 0)
                 {
                     float randomPitch = 1f + Random.Range(-soundToPlay.pitchRange, soundToPlay.pitchRange);
-                    freeAudioSource.pitch = randomPitch + soundToPlay.pitchOffset;
+                    freeAudioSource.pitch = randomPitch;
                 }
-                else
-                    freeAudioSource.pitch += soundToPlay.pitchOffset;
+                freeAudioSource.pitch += soundToPlay.pitchOffset;
 
                 freeAudioSource.Play();
 
@@ -88,10 +88,6 @@ public class SoundManager : MonoBehaviour
                     // If not looping, schedule to stop the sound after its duration
                     StartCoroutine(StopSoundAfterDuration(freeAudioSource, clipToPlay.length));
                 }
-            }
-            else
-            {
-                Debug.LogWarning("All audio sources are busy. Unable to play sound: " + clipName);
             }
         }
         else

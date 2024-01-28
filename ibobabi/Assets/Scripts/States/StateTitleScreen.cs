@@ -3,12 +3,13 @@ public class StateTitleScreen : State
     public override void OnEnterState()
     {
         base.OnEnterState();
-        // Additional logic for entering TitleScreen state
+        SoundManager.instance.PlaySound("sleep", true);
     }
 
     public override void OnExitState()
     {
         base.OnExitState();
-        // Additional logic for exiting TitleScreen state
+        SoundManager.instance.StopSound("sleep");
+        SoundManager.instance.PlaySound("fart");
     }
 }

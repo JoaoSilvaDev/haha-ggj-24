@@ -379,6 +379,7 @@ public class Menino : MonoBehaviour
 
     private void Tickle()
     {
+        SoundManager.instance.PlaySound("laugh");
         vfx.ScaleHit(UnityEngine.Random.Range(visualHitScaleAmount, visualHitScaleAmount), true, false, 0.2f);
         vfx.FlashHit(Color.white, 0.1f);
         rend.flipX = (UnityEngine.Random.Range(0f,1f) > 0.5f);
