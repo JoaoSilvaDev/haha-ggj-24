@@ -2,6 +2,7 @@ using System.Linq;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.UIElements;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class GameManager : MonoBehaviour
     private int currentTickleLevel = 0;
     private int currentTickleGoal = 0;
     public int tickleIncrementAfterFinishedGoals = 20;
+
+    [Header("OTHER VISUALS")]
+    public Animator background;
 
     private IState currentState = null;
     public IState CurrentState { get { return currentState; } }
@@ -62,6 +66,8 @@ public class GameManager : MonoBehaviour
         menino.OnFinishedFinishedTickleTimer += GoToRunState;
         menino.OnFinishedTickleTimer += GoToLoseStateRunaway;
         menino.OnTickledDuringStopTime += GoToLoseStateTooManyTickles;
+
+        tickleStopState.OnExit += FadeOutStopBackground;
     }
 
     void Update()
@@ -120,17 +126,24 @@ public class GameManager : MonoBehaviour
         // Change State
         SetState(tickleState);
     }
-    
+
+    void FadeOutStopBackground()
+    {
+        background.Play("bg-red-fadeout");
+    }
+
 
     // called when going back to TickleState from StopTickle
     private void GoBackToTickle()
     {
-        // Change State
+        FadeOutStopBackground();
+        // Change State        
         SetState(tickleState);
     }
 
     private void GoToTickleStopState()
     {
+        background.Play("bg-red-fadein");
         SetState(tickleStopState);
     }
 
