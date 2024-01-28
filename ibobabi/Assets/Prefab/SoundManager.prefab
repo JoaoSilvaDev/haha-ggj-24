@@ -124,7 +124,7 @@ MonoBehaviour:
   - soundname: slightly-angry
     clips:
     - {fileID: 8300000, guid: c34dad43670e2a348ba82a922e6483a8, type: 3}
-    volume: 1
+    volume: 0.3
     loop: 0
     pitchRange: 0
     pitchOffset: 0
@@ -145,7 +145,7 @@ MonoBehaviour:
   - soundname: gun-reload
     clips:
     - {fileID: 8300000, guid: ace4f8e5904570a45bded3141bbdab92, type: 3}
-    volume: 1
+    volume: 0.5
     loop: 0
     pitchRange: 0
     pitchOffset: 0
