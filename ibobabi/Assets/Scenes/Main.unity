@@ -405,7 +405,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &158237354
 MonoBehaviour:
@@ -1093,7 +1093,7 @@ Transform:
   - {fileID: 244338015}
   - {fileID: 1301250569}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
@@ -1658,7 +1658,7 @@ RectTransform:
   - {fileID: 1915317141}
   - {fileID: 1462530959}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2071,7 +2071,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 980090095}
   m_Enabled: 1
-  m_Alpha: 0
+  m_Alpha: 1
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
@@ -2689,10 +2689,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 20
+  m_text: 0
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e3bdd67a4c11a194b835780e8e09921a, type: 2}
+  m_sharedMaterial: {fileID: 4206958639759460426, guid: e3bdd67a4c11a194b835780e8e09921a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2944,7 +2944,7 @@ Transform:
   - {fileID: 1853953355}
   - {fileID: 966922607}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1301250568
 GameObject:
@@ -3508,6 +3508,7 @@ GameObject:
   - component: {fileID: 1681975890}
   - component: {fileID: 1681975892}
   - component: {fileID: 1681975891}
+  - component: {fileID: 1681975893}
   m_Layer: 5
   m_Name: 'tickle: image'
   m_TagString: Untagged
@@ -3573,6 +3574,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1681975889}
   m_CullTransparentMesh: 1
+--- !u!95 &1681975893
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1681975889}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e46f8b01e66a0ea4e9aa0f81436dccea, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1689074612
 GameObject:
   m_ObjectHideFlags: 0
@@ -3791,7 +3812,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1695612968
 Animator:
@@ -4710,7 +4731,7 @@ Transform:
   m_Children:
   - {fileID: 891327383}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2050497673
 MonoBehaviour:
@@ -4730,7 +4751,7 @@ MonoBehaviour:
   bounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 6, y: 3, z: 0}
-  mouseHoverClickIncrease: 0.1
+  mouseHoverClickIncrease: 0.07
   mouseHoverIncreaseSpeed: 0
   mouseHoverDecreaseSpeed: 0.6
   visualHitFrequency: 0.2
@@ -4768,9 +4789,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.1}
+  m_Offset: {x: 0, y: -0.02}
   serializedVersion: 2
-  m_Radius: 0.4
+  m_Radius: 0.45
 --- !u!95 &2050497676
 Animator:
   serializedVersion: 4
@@ -4977,7 +4998,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8546500494042141142, guid: cff8e02f260d1ce47bea23d28791f7ec, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8546500494042141142, guid: cff8e02f260d1ce47bea23d28791f7ec, type: 3}
       propertyPath: m_LocalPosition.x

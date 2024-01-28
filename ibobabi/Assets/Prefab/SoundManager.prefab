@@ -55,7 +55,7 @@ MonoBehaviour:
   - soundname: sleep
     clips:
     - {fileID: 8300000, guid: 70c5b8caa08ecac478e842272089cf27, type: 3}
-    volume: 0.7
+    volume: 0.9
     loop: 1
     pitchRange: 0
     pitchOffset: 0
@@ -102,6 +102,13 @@ MonoBehaviour:
     loop: 0
     pitchRange: 0
     pitchOffset: 0.8
+  - soundname: fart
+    clips:
+    - {fileID: 8300000, guid: 9727e79a2dc9d7f4a836523b8a8fa289, type: 3}
+    volume: 0.4
+    loop: 0
+    pitchRange: 0.4
+    pitchOffset: 0.8
   - soundname: laugh
     clips:
     - {fileID: 8300000, guid: 3bbebed1c6479cc4ea9717199390c657, type: 3}
@@ -110,7 +117,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 3f5005546edc3ee4fa124a35378aa1cd, type: 3}
     - {fileID: 8300000, guid: 803fe34c1af3b1a408d6f89e94cb145e, type: 3}
     - {fileID: 8300000, guid: e3b2077afb4ab3046821f14c875e820f, type: 3}
-    volume: 0.7
+    volume: 0.5
     loop: 0
     pitchRange: 0.5
     pitchOffset: 0.25

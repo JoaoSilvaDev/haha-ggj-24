@@ -42,6 +42,8 @@ public class SoundManager : MonoBehaviour
             AudioSource newAudioSource = gameObject.AddComponent<AudioSource>();
             audioSources.Add(newAudioSource);
         }
+
+        PlaySound("sleep", true);
     }
 
     public void PlaySound(string clipName, bool preventDuplicate = false)

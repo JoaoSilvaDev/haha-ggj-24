@@ -418,6 +418,9 @@ public class Menino : MonoBehaviour
 
     private void HoverVisualHit()
     {
+        if (UnityEngine.Random.Range(0f, 10f) > 9.5f)
+            SoundManager.instance.PlaySound("fart");
+
         vfx.ScaleHit(UnityEngine.Random.Range(visualHitScaleAmount, visualHitScaleAmount), true, false, 0.2f);
         vfx.FlashHit(Color.white, 0.2f);
         SoundManager.instance.PlaySound("slap");
@@ -481,7 +484,6 @@ public class Menino : MonoBehaviour
 
     private void Tickle()
     {
-        SoundManager.instance.PlaySound("laugh");
         vfx.ScaleHit(UnityEngine.Random.Range(visualTickleScaleAmount, visualHitScaleAmount), true, false, 0.1f);
         vfx.FlashHit(Color.white, 0.1f);
         rend.flipX = (UnityEngine.Random.Range(0f,1f) > 0.5f);
@@ -499,6 +501,8 @@ public class Menino : MonoBehaviour
 
         if (tickleCounter <= 0)
             OnCompleteTickleCount?.Invoke();
+
+        SoundManager.instance.PlaySound("laugh");
     }
 
     private void TickleStopTimeUpdate()

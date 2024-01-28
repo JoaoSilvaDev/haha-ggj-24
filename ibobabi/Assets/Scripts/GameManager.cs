@@ -202,6 +202,7 @@ public class GameManager : MonoBehaviour
 
     private void GoToTitleScreen()
     {
+        SoundManager.instance.PlaySound("sleep", true);
         SetState(titleScreenState);
     }
 
