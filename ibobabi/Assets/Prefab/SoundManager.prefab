@@ -117,7 +117,7 @@ MonoBehaviour:
   - soundname: tickle-start
     clips:
     - {fileID: 8300000, guid: 95fc591a4d42a0844806250cbddfa79e, type: 3}
-    volume: 1
+    volume: 0.5
     loop: 0
     pitchRange: 0
     pitchOffset: 0
