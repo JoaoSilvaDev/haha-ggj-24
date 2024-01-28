@@ -1332,7 +1332,7 @@ MonoBehaviour:
   zoomInCameraSize: 1
   zoomInMoreCameraSize: 0.5
   zoomLerpSpeedDefault: 25
-  zoomLerpSpeedFaster: 70
+  zoomLerpSpeedFaster: 45
   zoomLerpSpeedSlower: 10
   moveLerpSpeed: 25
 --- !u!1 &543522204
@@ -3986,7 +3986,7 @@ MonoBehaviour:
   visualHitScaleAmount: 0.3
   fallDuration: 1.5
   tickleDuration: 3
-  minStopDuration: 3
+  minStopDuration: 5
   maxStopDuration: 5
   tickleFinishedDuration: 2
   cameraShakeHit: 0.015
