@@ -48,6 +48,12 @@ public class Menino : MonoBehaviour
     public float tickleFinishedDuration = 3f;
     private float tickleFinishedTimer = 0f;
 
+    [Header("Camera Shake")]
+    public float cameraShakeHit = 0.02f;
+    public float cameraShakeHitDuration = 0.2f;
+    public float cameraShakeTickle = 0.02f;
+    public float cameraShakeTickleDuration = 0.02f;
+
     public Animator anim;
     public meninoVFX vfx;
     public SpriteRenderer rend;
@@ -298,6 +304,7 @@ public class Menino : MonoBehaviour
     {
         vfx.ScaleHit(UnityEngine.Random.Range(visualHitScaleAmount, visualHitScaleAmount), true, false, 0.2f);
         vfx.FlashHit(Color.white, 0.2f);
+        CameraController.instance.Shake(cameraShakeHitDuration, cameraShakeHit);
     }
     #endregion
 
@@ -315,8 +322,20 @@ public class Menino : MonoBehaviour
     public void SetStopTimer()
     {
         hasStoppedinCurrentTickleSequence = false;
-        stopTiming = tickleDuration * (1 - UnityEngine.Random.Range(0.5f, 0.8f));
+        stopTiming = tickleDuration * (1 - UnityEngine.Random.Range(0.4f, 0.6f));
         stopDuration = UnityEngine.Random.Range(minStopDuration, maxStopDuration);
+    }
+
+    public void TickelStopZoomOut()
+    {
+        rend.flipX = false;
+        CameraController.instance.ZoomIn();
+    }
+
+    public void TickleStopZoomInMore()
+    {
+        rend.flipX = false;
+        CameraController.instance.ZoomInMore();
     }
 
     public void TickleTimeUpdate()
@@ -327,11 +346,7 @@ public class Menino : MonoBehaviour
             FinishedTickleTimer();
 
         if (currentTickleTimer < stopTiming && !hasStoppedinCurrentTickleSequence)
-        {
-            stopTimer = 0f;
-            hasStoppedinCurrentTickleSequence = true;
-            OnStopTickle?.Invoke();
-        }
+            StopTickle();
     }
 
     public void FinishedTickleTimer()
@@ -349,6 +364,9 @@ public class Menino : MonoBehaviour
     {
         vfx.ScaleHit(UnityEngine.Random.Range(visualHitScaleAmount, visualHitScaleAmount), true, false, 0.2f);
         vfx.FlashHit(Color.white, 0.1f);
+        rend.flipX = (UnityEngine.Random.Range(0f,1f) > 0.5f);
+
+        CameraController.instance.Shake(cameraShakeTickleDuration, cameraShakeTickle);
 
         anim.Play("laughs", 0, UnityEngine.Random.Range(0f, 1f));
 
@@ -367,7 +385,15 @@ public class Menino : MonoBehaviour
             OnFinishedStopTickleTimer?.Invoke();
         }
     }
-    
+
+    private void StopTickle()
+    {
+        stopTimer = 0f;
+        hasStoppedinCurrentTickleSequence = true;
+        rend.flipX = false;
+        OnStopTickle?.Invoke();
+    }
+
     private void TickledDuringStopTime()
     {
         OnTickledDuringStopTime?.Invoke();
