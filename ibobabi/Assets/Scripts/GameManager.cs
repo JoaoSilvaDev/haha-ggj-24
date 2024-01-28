@@ -2,6 +2,7 @@ using System.Linq;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.UIElements;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class GameManager : MonoBehaviour
     private int currentTickleLevel = 0;
     private int currentTickleGoal = 0;
     public int tickleIncrementAfterFinishedGoals = 20;
+
+    [Header("OTHER VISUALS")]
+    public Animator background;
 
     private IState currentState = null;
     public IState CurrentState { get { return currentState; } }
@@ -125,12 +129,14 @@ public class GameManager : MonoBehaviour
     // called when going back to TickleState from StopTickle
     private void GoBackToTickle()
     {
-        // Change State
+        background.Play("bg-red-fadeout");
+        // Change State        
         SetState(tickleState);
     }
 
     private void GoToTickleStopState()
     {
+        background.Play("bg-red-fadein");
         SetState(tickleStopState);
     }
 

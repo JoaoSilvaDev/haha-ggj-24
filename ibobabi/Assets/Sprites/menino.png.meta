@@ -108,11 +108,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 800
+        y: 1200
         width: 100
         height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -129,11 +129,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 100
-        y: 800
+        y: 1200
         width: 100
         height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -150,11 +150,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 200
-        y: 800
+        y: 1200
         width: 100
         height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -171,11 +171,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 300
-        y: 800
+        y: 1200
         width: 100
         height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -192,11 +192,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 400
-        y: 800
+        y: 1200
         width: 100
         height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -213,11 +213,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 500
-        y: 800
+        y: 1200
         width: 100
         height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -233,12 +233,12 @@ TextureImporter:
       name: menino_6
       rect:
         serializedVersion: 2
-        x: 600
-        y: 800
+        x: 0
+        y: 1100
         width: 100
         height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -254,12 +254,12 @@ TextureImporter:
       name: menino_7
       rect:
         serializedVersion: 2
-        x: 700
-        y: 800
+        x: 100
+        y: 1100
         width: 100
         height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -275,12 +275,12 @@ TextureImporter:
       name: menino_8
       rect:
         serializedVersion: 2
-        x: 800
-        y: 800
+        x: 200
+        y: 1100
         width: 100
         height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -296,12 +296,12 @@ TextureImporter:
       name: menino_9
       rect:
         serializedVersion: 2
-        x: 900
-        y: 800
+        x: 300
+        y: 1100
         width: 100
         height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -318,11 +318,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 700
+        y: 1000
         width: 100
         height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -339,11 +339,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 100
-        y: 700
+        y: 1000
         width: 100
         height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -360,11 +360,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 200
-        y: 700
+        y: 1000
         width: 100
         height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -381,11 +381,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 300
-        y: 700
+        y: 1000
         width: 100
         height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -402,11 +402,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 400
-        y: 700
+        y: 1000
         width: 100
         height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -423,11 +423,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 500
-        y: 700
+        y: 1000
         width: 100
         height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -443,12 +443,12 @@ TextureImporter:
       name: menino_16
       rect:
         serializedVersion: 2
-        x: 600
-        y: 700
+        x: 0
+        y: 900
         width: 100
         height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -464,12 +464,12 @@ TextureImporter:
       name: menino_17
       rect:
         serializedVersion: 2
-        x: 700
-        y: 700
+        x: 100
+        y: 900
         width: 100
         height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -485,12 +485,12 @@ TextureImporter:
       name: menino_18
       rect:
         serializedVersion: 2
-        x: 800
-        y: 700
+        x: 200
+        y: 900
         width: 100
         height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -506,12 +506,12 @@ TextureImporter:
       name: menino_19
       rect:
         serializedVersion: 2
-        x: 900
-        y: 700
+        x: 300
+        y: 900
         width: 100
         height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -527,12 +527,12 @@ TextureImporter:
       name: menino_20
       rect:
         serializedVersion: 2
-        x: 0
-        y: 600
+        x: 400
+        y: 900
         width: 100
         height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -548,12 +548,12 @@ TextureImporter:
       name: menino_21
       rect:
         serializedVersion: 2
-        x: 100
-        y: 600
+        x: 500
+        y: 900
         width: 100
         height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -569,12 +569,12 @@ TextureImporter:
       name: menino_22
       rect:
         serializedVersion: 2
-        x: 200
-        y: 600
+        x: 0
+        y: 800
         width: 100
         height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -590,12 +590,12 @@ TextureImporter:
       name: menino_23
       rect:
         serializedVersion: 2
-        x: 300
-        y: 600
+        x: 100
+        y: 800
         width: 100
         height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -611,12 +611,12 @@ TextureImporter:
       name: menino_24
       rect:
         serializedVersion: 2
-        x: 400
-        y: 600
+        x: 200
+        y: 800
         width: 100
         height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -632,12 +632,12 @@ TextureImporter:
       name: menino_25
       rect:
         serializedVersion: 2
-        x: 500
-        y: 600
+        x: 300
+        y: 800
         width: 100
         height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -653,12 +653,12 @@ TextureImporter:
       name: menino_26
       rect:
         serializedVersion: 2
-        x: 600
-        y: 600
+        x: 0
+        y: 700
         width: 100
         height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -674,12 +674,12 @@ TextureImporter:
       name: menino_27
       rect:
         serializedVersion: 2
-        x: 700
-        y: 600
+        x: 100
+        y: 700
         width: 100
         height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -695,12 +695,12 @@ TextureImporter:
       name: menino_28
       rect:
         serializedVersion: 2
-        x: 800
+        x: 0
         y: 600
         width: 100
         height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -716,12 +716,12 @@ TextureImporter:
       name: menino_29
       rect:
         serializedVersion: 2
-        x: 900
+        x: 100
         y: 600
         width: 100
         height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -737,12 +737,12 @@ TextureImporter:
       name: menino_30
       rect:
         serializedVersion: 2
-        x: 0
-        y: 500
+        x: 200
+        y: 600
         width: 100
         height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -758,12 +758,12 @@ TextureImporter:
       name: menino_31
       rect:
         serializedVersion: 2
-        x: 100
-        y: 500
+        x: 300
+        y: 600
         width: 100
         height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -779,12 +779,12 @@ TextureImporter:
       name: menino_32
       rect:
         serializedVersion: 2
-        x: 200
-        y: 500
+        x: 400
+        y: 600
         width: 100
         height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -800,12 +800,12 @@ TextureImporter:
       name: menino_33
       rect:
         serializedVersion: 2
-        x: 300
-        y: 500
+        x: 500
+        y: 600
         width: 100
         height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -821,12 +821,12 @@ TextureImporter:
       name: menino_34
       rect:
         serializedVersion: 2
-        x: 400
-        y: 500
+        x: 600
+        y: 600
         width: 100
         height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -842,12 +842,12 @@ TextureImporter:
       name: menino_35
       rect:
         serializedVersion: 2
-        x: 500
-        y: 500
+        x: 700
+        y: 600
         width: 100
         height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -863,12 +863,12 @@ TextureImporter:
       name: menino_36
       rect:
         serializedVersion: 2
-        x: 600
-        y: 500
+        x: 800
+        y: 600
         width: 100
         height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -884,12 +884,12 @@ TextureImporter:
       name: menino_37
       rect:
         serializedVersion: 2
-        x: 700
-        y: 500
+        x: 900
+        y: 600
         width: 100
         height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -905,12 +905,12 @@ TextureImporter:
       name: menino_38
       rect:
         serializedVersion: 2
-        x: 800
+        x: 0
         y: 500
         width: 100
         height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -926,12 +926,12 @@ TextureImporter:
       name: menino_39
       rect:
         serializedVersion: 2
-        x: 900
+        x: 100
         y: 500
         width: 100
         height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -947,12 +947,12 @@ TextureImporter:
       name: menino_40
       rect:
         serializedVersion: 2
-        x: 0
-        y: 400
+        x: 200
+        y: 500
         width: 100
         height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -968,12 +968,12 @@ TextureImporter:
       name: menino_41
       rect:
         serializedVersion: 2
-        x: 100
-        y: 400
+        x: 300
+        y: 500
         width: 100
         height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -989,12 +989,12 @@ TextureImporter:
       name: menino_42
       rect:
         serializedVersion: 2
-        x: 200
-        y: 400
+        x: 400
+        y: 500
         width: 100
         height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1010,12 +1010,12 @@ TextureImporter:
       name: menino_43
       rect:
         serializedVersion: 2
-        x: 300
-        y: 400
+        x: 500
+        y: 500
         width: 100
         height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1031,12 +1031,12 @@ TextureImporter:
       name: menino_44
       rect:
         serializedVersion: 2
-        x: 400
-        y: 400
+        x: 600
+        y: 500
         width: 100
         height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1052,12 +1052,12 @@ TextureImporter:
       name: menino_45
       rect:
         serializedVersion: 2
-        x: 500
-        y: 400
+        x: 700
+        y: 500
         width: 100
         height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1073,12 +1073,12 @@ TextureImporter:
       name: menino_46
       rect:
         serializedVersion: 2
-        x: 600
-        y: 400
+        x: 800
+        y: 500
         width: 100
         height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1094,12 +1094,12 @@ TextureImporter:
       name: menino_47
       rect:
         serializedVersion: 2
-        x: 700
-        y: 400
+        x: 900
+        y: 500
         width: 100
         height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1115,12 +1115,12 @@ TextureImporter:
       name: menino_48
       rect:
         serializedVersion: 2
-        x: 800
+        x: 0
         y: 400
         width: 100
         height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1136,12 +1136,12 @@ TextureImporter:
       name: menino_49
       rect:
         serializedVersion: 2
-        x: 900
+        x: 100
         y: 400
         width: 100
         height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1157,12 +1157,12 @@ TextureImporter:
       name: menino_50
       rect:
         serializedVersion: 2
-        x: 0
-        y: 300
+        x: 200
+        y: 400
         width: 100
         height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1178,12 +1178,12 @@ TextureImporter:
       name: menino_51
       rect:
         serializedVersion: 2
-        x: 100
-        y: 300
+        x: 300
+        y: 400
         width: 100
         height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1199,12 +1199,12 @@ TextureImporter:
       name: menino_52
       rect:
         serializedVersion: 2
-        x: 200
-        y: 300
+        x: 400
+        y: 400
         width: 100
         height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1220,12 +1220,12 @@ TextureImporter:
       name: menino_53
       rect:
         serializedVersion: 2
-        x: 300
-        y: 300
+        x: 500
+        y: 400
         width: 100
         height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1241,12 +1241,12 @@ TextureImporter:
       name: menino_54
       rect:
         serializedVersion: 2
-        x: 400
-        y: 300
+        x: 600
+        y: 400
         width: 100
         height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1262,12 +1262,12 @@ TextureImporter:
       name: menino_55
       rect:
         serializedVersion: 2
-        x: 500
-        y: 300
+        x: 700
+        y: 400
         width: 100
         height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1283,12 +1283,12 @@ TextureImporter:
       name: menino_56
       rect:
         serializedVersion: 2
-        x: 600
-        y: 300
+        x: 800
+        y: 400
         width: 100
         height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1304,12 +1304,12 @@ TextureImporter:
       name: menino_57
       rect:
         serializedVersion: 2
-        x: 700
-        y: 300
+        x: 900
+        y: 400
         width: 100
         height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1325,12 +1325,12 @@ TextureImporter:
       name: menino_58
       rect:
         serializedVersion: 2
-        x: 800
+        x: 0
         y: 300
         width: 100
         height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1346,12 +1346,12 @@ TextureImporter:
       name: menino_59
       rect:
         serializedVersion: 2
-        x: 900
+        x: 100
         y: 300
         width: 100
         height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1367,12 +1367,12 @@ TextureImporter:
       name: menino_60
       rect:
         serializedVersion: 2
-        x: 0
-        y: 200
+        x: 200
+        y: 300
         width: 100
         height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1388,12 +1388,12 @@ TextureImporter:
       name: menino_61
       rect:
         serializedVersion: 2
-        x: 100
-        y: 200
+        x: 300
+        y: 300
         width: 100
         height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1409,12 +1409,12 @@ TextureImporter:
       name: menino_62
       rect:
         serializedVersion: 2
-        x: 200
-        y: 200
+        x: 400
+        y: 300
         width: 100
         height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1430,12 +1430,12 @@ TextureImporter:
       name: menino_63
       rect:
         serializedVersion: 2
-        x: 300
-        y: 200
+        x: 500
+        y: 300
         width: 100
         height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1451,12 +1451,12 @@ TextureImporter:
       name: menino_64
       rect:
         serializedVersion: 2
-        x: 400
-        y: 200
+        x: 600
+        y: 300
         width: 100
         height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1472,12 +1472,12 @@ TextureImporter:
       name: menino_65
       rect:
         serializedVersion: 2
-        x: 500
-        y: 200
+        x: 700
+        y: 300
         width: 100
         height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1493,12 +1493,12 @@ TextureImporter:
       name: menino_66
       rect:
         serializedVersion: 2
-        x: 600
-        y: 200
+        x: 800
+        y: 300
         width: 100
         height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1514,12 +1514,12 @@ TextureImporter:
       name: menino_67
       rect:
         serializedVersion: 2
-        x: 700
-        y: 200
+        x: 900
+        y: 300
         width: 100
         height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1527,468 +1527,6 @@ TextureImporter:
       bones: []
       spriteID: 674016d6e3213ac44821d5df870d04bc
       internalID: -1906085876
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: menino_68
-      rect:
-        serializedVersion: 2
-        x: 800
-        y: 200
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f81051aa416079d40a4fdc057d735146
-      internalID: 1000989720
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: menino_69
-      rect:
-        serializedVersion: 2
-        x: 900
-        y: 200
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 569b1f7f0df4ba247ad50629006f68b8
-      internalID: -1737690926
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: menino_70
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 100
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3572e89bf42019f45b87e6a046a38955
-      internalID: -1905081171
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: menino_71
-      rect:
-        serializedVersion: 2
-        x: 100
-        y: 100
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2b85d63c5dd58d94ca97c62d0dd19311
-      internalID: -1002563037
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: menino_72
-      rect:
-        serializedVersion: 2
-        x: 200
-        y: 100
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2fe2dd839e2497643adf5e331655a0df
-      internalID: 1423417461
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: menino_73
-      rect:
-        serializedVersion: 2
-        x: 300
-        y: 100
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 280f53f19ccf6504a989b8d76d6a5821
-      internalID: 1880189983
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: menino_74
-      rect:
-        serializedVersion: 2
-        x: 400
-        y: 100
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3dbaefec207328349a5bcd8520631633
-      internalID: 180272058
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: menino_75
-      rect:
-        serializedVersion: 2
-        x: 500
-        y: 100
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2eb98a5236a5c5141949f42daf6da61e
-      internalID: 1846453694
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: menino_76
-      rect:
-        serializedVersion: 2
-        x: 600
-        y: 100
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 190ecf1eca810c44f85b6907388a31c9
-      internalID: 1517147785
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: menino_77
-      rect:
-        serializedVersion: 2
-        x: 700
-        y: 100
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3143b00f07c9dd24aaf6fae1711e12f6
-      internalID: -1633416662
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: menino_78
-      rect:
-        serializedVersion: 2
-        x: 800
-        y: 100
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8d8acf446810d994ca917525d8f0a513
-      internalID: -931820593
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: menino_79
-      rect:
-        serializedVersion: 2
-        x: 900
-        y: 100
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 16217eba7e151f6419ecc57e3f4bc541
-      internalID: -1557542908
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: menino_80
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d60461572e9fd1a4c8e058ca51c8b208
-      internalID: -362912238
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: menino_81
-      rect:
-        serializedVersion: 2
-        x: 100
-        y: 0
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 71f2f1745e57b994ebecef357ba2f119
-      internalID: 277337631
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: menino_82
-      rect:
-        serializedVersion: 2
-        x: 200
-        y: 0
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fb692625a94f8a3429316f820f527f3e
-      internalID: 1481498027
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: menino_83
-      rect:
-        serializedVersion: 2
-        x: 300
-        y: 0
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1dc6cf6b4836f484baec24005901d270
-      internalID: 650752899
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: menino_84
-      rect:
-        serializedVersion: 2
-        x: 400
-        y: 0
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 38197dbb80e28004eb0abb5dded31747
-      internalID: 1862071252
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: menino_85
-      rect:
-        serializedVersion: 2
-        x: 500
-        y: 0
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0ec7bf7acc7ab3b4b82b93e5154ca9c7
-      internalID: -73897702
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: menino_86
-      rect:
-        serializedVersion: 2
-        x: 600
-        y: 0
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 65bd69ff5db558543b660bee4a88b24f
-      internalID: 1480626600
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: menino_87
-      rect:
-        serializedVersion: 2
-        x: 700
-        y: 0
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 89913d8568269fe478394677625256bd
-      internalID: -1557521525
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: menino_88
-      rect:
-        serializedVersion: 2
-        x: 800
-        y: 0
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b39ef452a3386a64a9fb112bedf1617c
-      internalID: -867592575
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: menino_89
-      rect:
-        serializedVersion: 2
-        x: 900
-        y: 0
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 49ac326c8f20f084ba720fdc048834dc
-      internalID: 600390779
       vertices: []
       indices: 
       edges: []
@@ -2004,31 +1542,40 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      menino_13: 1087651128
       menino_22: 652223422
       menino_32: -447258207
-      menino_82: 1481498027
+      menino_33: 1378938974
+      menino_65: -471582878
       menino_43: 181620013
       menino_46: -561149834
       menino_57: 1535519309
+      menino_55: -1425941548
+      menino_24: -406317918
       menino_59: 2006019180
-      menino_71: -1002563037
+      menino_0: -1246729927
       menino_5: -134074995
-      menino_78: -931820593
+      menino_30: 1436234444
       menino_40: 894839356
-      menino_74: 180272058
       menino_11: 1428572383
+      menino_23: 44443907
       menino_15: 1583580532
-      menino_86: 1480626600
-      menino_58: -2129136816
+      menino_34: 558139047
+      menino_49: -1189341753
+      menino_60: 1261116213
+      menino_14: 1384704953
+      menino_20: 697799786
       menino_64: -1667327316
-      menino_76: 1517147785
-      menino_73: 1880189983
+      menino_58: -2129136816
       menino_18: 1062115844
       menino_16: 1711309843
-      menino_35: 2039363864
       menino_10: -36990675
-      menino_79: -1557542908
-      menino_72: 1423417461
+      menino_42: 1496315078
+      menino_35: 2039363864
+      menino_17: 101253012
+      menino_48: -1028229882
+      menino_56: -1565751430
+      menino_44: -740655760
       menino_51: -35621375
       menino_47: 1575498796
       menino_12: 831950787
@@ -2036,64 +1583,33 @@ TextureImporter:
       menino_21: -1606287670
       menino_27: -390873099
       menino_31: 1039926315
-      menino_67: -1906085876
-      menino_37: 1004246604
-      menino_7: -465680933
-      menino_52: 1104852498
-      menino_87: -1557521525
-      menino_6: 851185033
-      menino_66: 430437382
-      menino_85: -73897702
-      menino_68: 1000989720
-      menino_29: 1132685077
-      menino_80: -362912238
-      menino_75: 1846453694
-      menino_36: 849345339
-      menino_65: -471582878
-      menino_39: -1513416903
-      menino_19: -34845536
-      menino_13: 1087651128
-      menino_33: 1378938974
-      menino_45: -1245285244
-      menino_70: -1905081171
-      menino_24: -406317918
-      menino_0: -1246729927
-      menino_30: 1436234444
-      menino_23: 44443907
-      menino_88: -867592575
-      menino_84: 1862071252
-      menino_34: 558139047
-      menino_49: -1189341753
-      menino_60: 1261116213
-      menino_77: -1633416662
-      menino_14: 1384704953
-      menino_20: 697799786
-      menino_42: 1496315078
-      menino_17: 101253012
-      menino_48: -1028229882
-      menino_56: -1565751430
-      menino_44: -740655760
-      menino_69: -1737690926
       menino_63: -433907602
       menino_3: -159817042
+      menino_67: -1906085876
       menino_61: -1395435668
-      menino_81: 277337631
+      menino_37: 1004246604
+      menino_7: -465680933
       menino_54: 468084323
       menino_38: -30045550
+      menino_52: 1104852498
       menino_8: 1475873439
       menino_62: -1921102888
       menino_26: -1687838952
-      menino_83: 650752899
+      menino_6: 851185033
       menino_25: 2044165154
       menino_28: 1278892242
       menino_2: 367889303
       menino_4: 1446531122
       menino_41: -1682471753
-      menino_89: 600390779
+      menino_66: 430437382
       menino_50: -975496489
+      menino_29: 1132685077
       menino_9: 176353780
-      menino_55: -1425941548
+      menino_36: 849345339
+      menino_19: -34845536
+      menino_39: -1513416903
       menino_53: 1149965380
+      menino_45: -1245285244
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
