@@ -20,6 +20,7 @@ public class Menino : MonoBehaviour
 
     [Header("MOUSE HOVER VISUALS")]
     public float visualHitFrequency = 0.5f;
+    public float visualHitScaleAmount = 0.2f;
     private bool mouseHover = false;
     private float visualHitTime = 0f;
 
@@ -88,6 +89,7 @@ public class Menino : MonoBehaviour
         }
         else if (GameManager.instance.CurrentState is StateTickleStop)
         {
+            anim.Play("stop-closeup");
             TickleStopTimeUpdate();
             if (stopTimer > stopTimerInputBuffer)
             {
@@ -294,6 +296,7 @@ public class Menino : MonoBehaviour
 
     private void HoverVisualHit()
     {
+        vfx.ScaleHit(UnityEngine.Random.Range(visualHitScaleAmount, visualHitScaleAmount), true, false, 0.2f);
         vfx.FlashHit(Color.white, 0.2f);
     }
     #endregion
@@ -344,6 +347,7 @@ public class Menino : MonoBehaviour
 
     private void Tickle()
     {
+        vfx.ScaleHit(UnityEngine.Random.Range(visualHitScaleAmount, visualHitScaleAmount), true, false, 0.2f);
         vfx.FlashHit(Color.white, 0.1f);
 
         anim.Play("laughs", 0, UnityEngine.Random.Range(0f, 1f));
