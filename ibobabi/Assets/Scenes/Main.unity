@@ -4716,7 +4716,7 @@ MonoBehaviour:
   bounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 6, y: 3, z: 0}
-  mouseHoverClickIncrease: 0.07
+  mouseHoverClickIncrease: 0.1
   mouseHoverIncreaseSpeed: 0
   mouseHoverDecreaseSpeed: 0.6
   visualHitFrequency: 0.2
