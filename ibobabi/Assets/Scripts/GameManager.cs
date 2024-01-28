@@ -187,7 +187,7 @@ public class GameManager : MonoBehaviour
     }
     private void GoToLoseStateRunaway()
     {
-        SoundManager.instance.PlaySound("lose_runaway");
+        CameraController.instance.ZoomOut();
         loseCondition = LoseConditions.Runaway;
         loseStateTimer = 0f;
         SetState(loseState);

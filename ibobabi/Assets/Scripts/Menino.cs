@@ -55,6 +55,7 @@ public class Menino : MonoBehaviour
     [Header("RUNAWAY")]
     public float runawayScreenDuration = 2f;
     private float runawayScreenTimer = 0f;
+    private bool startedRunaway = false;
 
     [Header("RESULTS")]
     public float resultsTimeBeforeSkip = 0.7f;
@@ -136,11 +137,25 @@ public class Menino : MonoBehaviour
         }
         else if(GameManager.instance.CurrentState is StateLose && GameManager.instance.loseCondition == GameManager.LoseConditions.Runaway)
         {
-            moveDirection = Vector2.up;
-            WalkStraight();
+            //startedRunaway = false;
+            //runawayScreenTimer = 0f;
             runawayScreenTimer += Time.deltaTime;
-            if (runawayScreenTimer > runawayScreenDuration)
-                GoToResultsScreen();
+
+            if (runawayScreenTimer > 0.2f)
+            {   
+                if (startedRunaway)
+                {
+                    moveDirection = Vector2.up;
+                    WalkStraight();
+                    if (runawayScreenTimer > runawayScreenDuration)
+                        GoToResultsScreen();
+                }
+                else
+                {
+                    SoundManager.instance.PlaySound("lose_runaway");
+                    startedRunaway = true;
+                }
+            }
         }
         else if(GameManager.instance.CurrentState is StateResults)
         {
@@ -232,7 +247,7 @@ public class Menino : MonoBehaviour
         }
         else if (GameManager.instance.CurrentState is StateTickle)
         {
-            anim.Play("laughs");
+            //anim.Play("laughs");
         }
     }
     
@@ -247,6 +262,7 @@ public class Menino : MonoBehaviour
         totalTickles = 0;
         runawayScreenTimer = 0f;
         resultsBeforeSkipTimer = 0f;
+        startedRunaway = false;
     }
 
     #region MOVEMENT
@@ -491,8 +507,14 @@ public class Menino : MonoBehaviour
         if (stopTimer >= stopDuration)
         {
             stopTimer = 0f;
+            FinishedStopTickle();
             OnFinishedStopTickleTimer?.Invoke();
         }
+    }
+
+    public void FinishedStopTickle()
+    {
+        anim.Play("hyperventilate");
     }
 
     private void StopTickle()
@@ -531,7 +553,6 @@ public class Menino : MonoBehaviour
         tickleFinishedTimer += Time.deltaTime;
         if (tickleFinishedTimer >= tickleFinishedDuration)
         {
-            runawayScreenTimer = 0f;
             OnFinishedFinishedTickleTimer?.Invoke();
         }
     }
