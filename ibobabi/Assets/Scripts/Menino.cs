@@ -232,7 +232,7 @@ public class Menino : MonoBehaviour
         }
         else if (GameManager.instance.CurrentState is StateTickle)
         {
-            anim.Play("laughs");
+            //anim.Play("laughs");
         }
     }
     
