@@ -69,6 +69,12 @@ public class SoundManager : MonoBehaviour
                 }
 
                 freeAudioSource.Play();
+
+                if (!soundToPlay.loop)
+                {
+                    // If not looping, schedule to stop the sound after its duration
+                    StartCoroutine(StopSoundAfterDuration(freeAudioSource, clipToPlay.length));
+                }
             }
             else
             {
@@ -81,8 +87,28 @@ public class SoundManager : MonoBehaviour
         }
     }
 
+    public void StopSound(string clipName)
+    {
+        AudioSource audioSourceToStop = audioSources.Find(source => source.isPlaying && source.clip != null && source.clip.name == clipName);
+
+        if (audioSourceToStop != null)
+        {
+            audioSourceToStop.Stop();
+        }
+        else
+        {
+            Debug.LogWarning("Sound not found or not currently playing: " + clipName);
+        }
+    }
+
     private AudioSource GetFreeAudioSource()
     {
         return audioSources.Find(source => !source.isPlaying);
+    }
+
+    private System.Collections.IEnumerator StopSoundAfterDuration(AudioSource audioSource, float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        audioSource.Stop();
     }
 }
