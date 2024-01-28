@@ -264,6 +264,11 @@ public class Menino : MonoBehaviour
         SoundManager.instance.PlaySound("run-step");
     }
 
+    public void SlightlyAngrySound()
+    {
+        SoundManager.instance.PlaySound("slightly-angry");
+    }
+
     private void StopMovement(float duration)
     {
         currentWalkDuration = duration;
@@ -282,6 +287,7 @@ public class Menino : MonoBehaviour
     {
         fallTimer = 0f;
         anim.Play("fall");
+        anim.Play("hurt");
     }
 
     private void FallStateUpdate()

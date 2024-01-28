@@ -138,6 +138,8 @@ public class GameManager : MonoBehaviour
         // Set Stop Timer
         menino.SetStopTimer();
 
+        SoundManager.instance.PlaySound("tickle-start");
+
         // Change State
         SetState(tickleState);
     }
