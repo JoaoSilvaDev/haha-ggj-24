@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
     public StateTickleStop tickleStopState;
     public StateTickleFinished tickleFinishedState;
     public StateLose loseState;
+    public StateResults resultsState;
 
     [Header("LOSE STATE")]
     private float loseStateTimeBeforeAllowSkip = 0.5f;
@@ -49,6 +50,7 @@ public class GameManager : MonoBehaviour
         tickleStopState = new StateTickleStop();
         tickleFinishedState = new StateTickleFinished();
         loseState = new StateLose();
+        resultsState = new StateResults();
 
         ResetGame();
 
@@ -66,24 +68,37 @@ public class GameManager : MonoBehaviour
         menino.OnFinishedFinishedTickleTimer += GoToRunState;
         menino.OnFinishedTickleTimer += GoToLoseStateRunaway;
         menino.OnTickledDuringStopTime += GoToLoseStateTooManyTickles;
+        menino.OnGoToResultsScreen += GoToResultsScreen;
+        menino.OnSkipResultsScreen += GoToTitleScreen;
 
         tickleStopState.OnExit += FadeOutStopBackground;
+    }
+
+    private void OnDisable()
+    {
+        menino.OnClickedTitleScreenMenino -= GoToRunState;
+        menino.OnCompleteHoverBar -= GoToFallState;
+        menino.OnCompleteFallAnimation -= StartTickleState;
+        menino.OnStopTickle -= GoToTickleStopState;
+        menino.OnFinishedStopTickleTimer -= GoBackToTickle;
+        menino.OnCompleteTickleCount -= GoToTickleFinishedState;
+        menino.OnFinishedFinishedTickleTimer -= GoToRunState;
+        menino.OnFinishedTickleTimer -= GoToLoseStateRunaway;
+        menino.OnTickledDuringStopTime -= GoToLoseStateTooManyTickles;
+        menino.OnGoToResultsScreen -= GoToResultsScreen;
+        menino.OnSkipResultsScreen -= GoToTitleScreen;
+
+        tickleStopState.OnExit -= FadeOutStopBackground;
     }
 
     void Update()
     {
         currentState.UpdateState();
-
-        if(currentState is StateLose)
-        {
-            loseStateTimer += Time.deltaTime;
-            if(CanSkipLoseScreen && Input.anyKeyDown)
-                GoToTitleScreen();
-        }
     }
 
     public void ResetGame()
     {
+        menino.ResetMenino();
         loseStateTimer = 0f;
         SetTickleLevel(0);
     }
@@ -183,5 +198,10 @@ public class GameManager : MonoBehaviour
     private void GoToTitleScreen()
     {
         SetState(titleScreenState);
+    }
+
+    private void GoToResultsScreen()
+    {
+        SetState(resultsState);
     }
 }
